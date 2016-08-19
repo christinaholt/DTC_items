@@ -1,0 +1,40 @@
+<task name="met_grid_anl_&MODEL;_#fcst#" maxtries="&MAX_TRIES;" cycledefs="00Z">
+
+    <command>&GMTB_SCRIPTS;/met_grid_anl_verf.ksh</command>
+
+    <account>&PROJECT;</account>
+    <queue>&QE;</queue>
+    <cores>1</cores>
+    <walltime>00:10:00</walltime>
+    <jobname><cyclestr>met_grid_anl_&MODEL;_@Y@m@d@H_#fcst#</cyclestr></jobname>
+    <join><cyclestr>&LOG;/met/met_grid_anl_&MODEL;_@Y@m@d@H_#fcst#.log</cyclestr></join>
+ 
+    &VX_VARS;
+
+    <envar>
+      <name>UTIL_EXEC</name>
+      <value>&UTIL_EXEC;</value>
+    </envar>
+    <envar>
+      <name>ANL_OBS_DIR</name>
+      <value>&GFS_ANL_OBS_DIR;</value>
+    </envar>
+    <envar>
+      <name>CLIMO_FILE_DIR</name>
+      <value>&CLIMO_FILE_DIR;</value>
+    </envar>
+    <envar>
+      <name>GRID_VX_LIST</name>
+      <value>G3</value>
+    </envar>
+
+    <dependency>
+      <and>
+        <datadep age="60">&ROTDIR;/<cyclestr>@Y@m@d@H/pgrbq#fcst#.gfs.@Y@m@d@H.grib2</cyclestr></datadep>
+        <datadep age="60">&GFS_ANL_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d@H/gfs.t@Hz.pgrb2.0p25.anl</cyclestr></datadep>
+        <sh>grep 'run_grid_anl=YES' <cyclestr>&SWITCH_FILE;</cyclestr></sh>
+      </and>
+    </dependency>
+
+</task> <!--task name="met_grid_anl"-->
+

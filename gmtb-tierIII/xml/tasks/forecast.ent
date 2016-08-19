@@ -1,0 +1,22 @@
+<task name="forecast" maxtries="&MAX_TRIES;" cycledefs="00Z">
+   <command>&EXPDIR;/psub &PARA_CONFIG; <cyclestr>@Y@m@d@H</cyclestr> gfs fcst1</command>
+
+   <account>&PROJECT;</account>
+   <queue>&QE;</queue>
+   <cores>1</cores>
+   <walltime>00:05:00</walltime>
+   <native>-W group_list=gmtb</native>
+   <jobname><cyclestr>forecast_@Y@m@d@H</cyclestr></jobname>
+   <join><cyclestr>&LOG;/forecast/forecast_@Y@m@d@H.log</cyclestr></join>
+
+   <dependency>
+    <and>
+       <datadep><cyclestr>&ROTDIR;/@Y@m@d@H/sfnanl.gfs.@Y@m@d@H</cyclestr></datadep>
+       <datadep><cyclestr>&ROTDIR;/@Y@m@d@H/gfnanl.gfs.@Y@m@d@H</cyclestr></datadep>
+    </and>
+<!--
+     <taskdep task="chgres"/> 
+-->
+   </dependency>
+
+</task> 

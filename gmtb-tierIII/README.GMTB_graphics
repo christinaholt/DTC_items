@@ -1,0 +1,40 @@
+To run the graphics for GMTB graphics: 
+
+1. Export required variables (either via Rocoto workflow or sourcing the 
+   config_local) 
+2. Load the anaconda python module
+     module use -a /contrib/modulefiles
+     module load anaconda
+3. Submit the GMTB_graphics.py using the following command: 
+     python GMTB_graphics.py 
+
+
+
+To add a graphic, edit the GMTB_graphics.py dictionary, map_confs, and potentially 
+the maps.py dictionary, params, in the set_fig_params method. 
+
+map_confs: sets the desired output figures that will be produced
+params: controls the settings of the figures such as shading intervals and scaling for desired levels
+
+
+If your variables do not exist in params, you must add them there. All values are not required,
+ but some information about contours are required. 
+
+To find the exact values that should go into the dictionaries can be found by opening up 
+and instance of Python and looking at the key,value pairs for the grib records. 
+
+1. Open python
+    python
+
+2. Load the pygrib package
+    import pygrib
+
+3. Open the grib file
+    filename='myfile.grb'
+    grbs = pygrib.open(filename)
+
+4. Look at the key value pairs
+    grb  = grbs[##]  !> ## is the grib record number
+    for i in grb.keys():  print i, grb[i]
+
+

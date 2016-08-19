@@ -1,0 +1,43 @@
+<task name="met_point_ua_&MODEL;_#fcst#" maxtries="&MAX_TRIES;" cycledefs="00Z">
+
+  <command>&GMTB_SCRIPTS;/met_point_verf_ua.ksh</command>
+
+  <account>&PROJECT;</account>
+  <queue>&QE;</queue>
+  <cores>1</cores>
+  <walltime>00:20:00</walltime>
+  <jobname><cyclestr>met_point_ua_&MODEL;_@Y@m@d@H_#fcst#</cyclestr></jobname>
+  <join><cyclestr>&LOG;/met/met_point_ua_&MODEL;_@Y@m@d@H_#fcst#.log</cyclestr></join>
+ 
+  &VX_VARS; 
+
+  <envar>
+    <name>UTIL_EXEC</name>
+    <value>&UTIL_EXEC;</value>
+  </envar>
+  <envar>
+    <name>GRID_VX_LIST</name>
+    <value>G3 G218</value>
+  </envar>
+  <envar>
+    <name>PNT_OBS_DIR</name>
+    <value>&GDAS_PNT_OBS_DIR;</value>
+  </envar>
+  <envar>
+    <name>OBS_DIR</name>
+    <value>&OBS_DIR;</value>
+  </envar>
+
+  <dependency>
+    <and>
+      <datadep age="60">&ROTDIR;/<cyclestr>@Y@m@d@H/pgrbq#fcst#.gfs.@Y@m@d@H.grib2</cyclestr></datadep>
+      <or>
+        <datadep age="60">&GDAS_PNT_OBS_DIR;/gdas/<cyclestr offset="#fcst#:00:00">prepbufr.gdas.@Y@m@d@H</cyclestr></datadep>
+        <datadep age="60">&OBS_DIR;/gdas/<cyclestr offset="#fcst#:00:00">@Y@m@d/prepbufr.gdas.@Y@m@d@H</cyclestr></datadep>
+      </or>
+      <sh>grep 'run_met_point_ua=YES' <cyclestr>&SWITCH_FILE;</cyclestr></sh>
+    </and>
+  </dependency>
+
+</task> <!--task name="met_point"-->
+

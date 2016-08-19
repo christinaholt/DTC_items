@@ -1,0 +1,29 @@
+<task name="graphics_&MODEL;_#fcst#" maxtries="3" cycledefs="00Z">
+
+    <command>&GMTB_SCRIPTS;/GMTB_graphics.py</command>
+
+    <account>&PROJECT;</account>
+    <queue>&QE;</queue>
+    <nodes>1:ppn=4</nodes>
+    <walltime>00:10:00</walltime>
+    <jobname><cyclestr>graphics_&MODEL;_@Y@m@d@H_#fcst#</cyclestr></jobname>
+    <join><cyclestr>&LOG;/graphics/graphics_&MODEL;_@Y@m@d@H_#fcst#.log</cyclestr></join>
+
+    &VX_VARS; 
+
+    <envar>
+      <name>GRID_VX_LIST</name>
+      <value>G3 G218</value>
+    </envar>
+    <envar>
+      <name>REGION</name>
+      <value>glob</value>
+    </envar>
+
+    <dependency>
+      <and>
+        <datadep age="60"><cyclestr>&ROTDIR;/@Y@m@d@H/pgrbq#fcst#.gfs.@Y@m@d@H.grib2</cyclestr></datadep>
+        <sh>grep 'run_graphics=YES' <cyclestr>&SWITCH_FILE;</cyclestr></sh>
+      </and>
+    </dependency>
+</task> <!--task name="graphics"-->

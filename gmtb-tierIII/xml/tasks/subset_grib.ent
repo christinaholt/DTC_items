@@ -1,0 +1,29 @@
+<task name="subset_grib_&MODEL;_#fcst#" maxtries="1" cycledefs="00Z">
+
+    <command>&GMTB_SCRIPTS;/subset_grib.py</command>
+
+    <account>&PROJECT;</account>
+    <queue>&QE;</queue>
+    <cores>1</cores>
+    <walltime>00:30:00</walltime>
+    <jobname><cyclestr>subset_grib_&MODEL;_@Y@m@d@H_#fcst#</cyclestr></jobname>
+    <join><cyclestr>&LOG;/subset_grib/subset_grib_&MODEL;_@Y@m@d@H_#fcst#.log</cyclestr></join>
+
+    &VX_VARS; 
+
+    <envar>
+      <name>BIG_GRIB</name>
+      <value>&ROTDIR;/@Y@m@d@H/pgrbq#fcst#.gfs.@Y@m@d@H.grib2</value>
+    </envar>
+    <envar>
+      <name>LITTLE_GRIB</name>
+      <value>&VX_OUTPUT;/grib_subset/pgrbq_sub#fcst#.gfs.@Y@m@d@H.grib2</value>
+    </envar>
+
+    <dependency>
+      <and>
+        <datadep age="60"><cyclestr>&ROTDIR;/@Y@m@d@H/pgrbq#fcst#.gfs.@Y@m@d@H.grib2</cyclestr></datadep>
+        <sh>grep 'run_subset=YES' <cyclestr>&SWITCH_FILE;</cyclestr></sh>
+      </and>
+    </dependency>
+</task> <!--task name="graphics"-->

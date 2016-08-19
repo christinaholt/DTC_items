@@ -1,0 +1,110 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+// Series-Analysis configuration file.
+//
+// For additional information, see the MET_BASE/data/config/README file.
+//
+////////////////////////////////////////////////////////////////////////////////
+
+//
+// Output model name to be written
+//
+model = "${config}";
+
+////////////////////////////////////////////////////////////////////////////////
+
+//
+// Forecast and observation fields to be verified
+//
+fcst = {
+
+   cat_thresh  = [ >0.0 ];
+
+   field = [
+      {
+
+        name  = "FCST_HGT_P500_FULL";
+        level = [ "P500" ];
+
+      }
+   ];
+
+};
+obs = {
+
+   cat_thresh  = [ >0.0 ];
+
+   field = [
+      {
+
+        name  = "OBS_HGT_P500_FULL";
+        level = [ "P500" ];
+
+      }
+   ];
+
+};
+//obs = fcst;
+
+////////////////////////////////////////////////////////////////////////////////
+
+//
+// Confidence interval settings
+//
+ci_alpha  = [ 0.01 ];
+
+boot = {
+   interval = PCTILE;
+   rep_prop = 1.0;
+   n_rep    = 0;
+   rng      = "mt19937";
+   seed     = "";
+};
+
+////////////////////////////////////////////////////////////////////////////////
+
+//
+// Verification masking regions
+//
+mask = {
+   grid = "FULL";
+   poly = "";
+};
+
+//
+// Number of grid points to be processed concurrently.  Set smaller to use
+// less memory but increase the number of passes through the data.
+//
+block_size = 256000;
+
+//
+// Ratio of valid matched pairs to compute statistics for a grid point
+//
+vld_thresh = 1.0;
+
+////////////////////////////////////////////////////////////////////////////////
+
+//
+// Statistical output types
+//
+output_stats = {
+   fho    = [];
+   ctc    = [];
+   cts    = [];
+   mctc   = [];
+   mcts   = [];
+   cnt    = [ "TOTAL", "ME", "FBAR", "OBAR" ];
+   sl1l2  = [];
+   pct    = [];
+   pstd   = [];
+   pjc    = [];
+   prc    = [];
+};
+
+////////////////////////////////////////////////////////////////////////////////
+
+rank_corr_flag = TRUE;
+tmp_dir        = "/tmp";
+version        = "V5.2";
+
+////////////////////////////////////////////////////////////////////////////////

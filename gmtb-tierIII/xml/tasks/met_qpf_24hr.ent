@@ -1,0 +1,54 @@
+      <task name="met_qpf_24h_&MODEL;_#fcst#" maxtries="&MAX_TRIES;" cycledefs="00Z">
+
+        <command>&GMTB_SCRIPTS;/met_qpf_verf_all.ksh</command>
+
+        <account>&PROJECT;</account>
+        <queue>&QE;</queue>
+        <cores>1</cores>
+        <walltime>00:15:00</walltime>
+        <jobname><cyclestr>met_qpf_24h_&MODEL;_@Y@m@d@H_#fcst#</cyclestr></jobname>
+        <join><cyclestr>&LOG;/met/met_qpf_24h_&MODEL;_@Y@m@d@H_#fcst#.log</cyclestr></join>
+
+        &VX_VARS;
+
+        <envar>
+          <name>UTIL_EXEC</name>
+          <value>&UTIL_EXEC;</value>
+        </envar>
+        <envar>
+          <name>ACCUM_TIME</name>
+          <value>24</value>
+        </envar>
+        <envar>
+          <name>OBS_BUCKET</name>
+          <value>6</value>
+        </envar>
+        <envar>
+          <name>MODEL_BUCKET</name>
+          <value>6</value>
+        </envar>
+        <envar>
+          <name>GRID_VX_LIST</name>
+          <value>G218</value>
+        </envar>
+        <envar>
+          <name>RAW_OBS</name>
+          <value>&CCPA_OBS_DIR;</value>
+        </envar>
+        <envar>
+          <name>OBTYPE</name>
+          <value>ccpa</value>
+        </envar>
+
+        <dependency>
+          <and>
+            <datadep age="60">&ROTDIR;/<cyclestr>@Y@m@d@H/pgrbq#fcst#.gfs.@Y@m@d@H.grib2</cyclestr></datadep>
+            <datadep age="60">&CCPA_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/ccpa_conus_hrap_t12z_06h_gb2</cyclestr></datadep>
+            <datadep age="60">&CCPA_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/ccpa_conus_hrap_t06z_06h_gb2</cyclestr></datadep>
+            <datadep age="60">&CCPA_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/ccpa_conus_hrap_t00z_06h_gb2</cyclestr></datadep>
+            <datadep age="60">&CCPA_OBS_DIR;/<cyclestr offset="#prev_fcst#:00:00">@Y@m@d/ccpa_conus_hrap_t18z_06h_gb2</cyclestr></datadep>
+            <sh>grep 'run_met_qpf_24h=YES' <cyclestr>&SWITCH_FILE;</cyclestr></sh>
+          </and>
+        </dependency>
+
+     </task> 

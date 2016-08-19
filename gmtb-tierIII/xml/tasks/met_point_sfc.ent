@@ -1,0 +1,37 @@
+<task name="met_point_sfc_&MODEL;_#fcst#" maxtries="&MAX_TRIES;" cycledefs="00Z">
+
+  <command>&GMTB_SCRIPTS;/met_point_verf_sfc.ksh</command>
+
+  <account>&PROJECT;</account>
+  <queue>&QE;</queue>
+  <cores>1</cores>
+  <walltime>01:15:00</walltime>
+  <jobname><cyclestr>met_point_sfc_&MODEL;_@Y@m@d@H_#fcst#</cyclestr></jobname>
+  <join><cyclestr>&LOG;/met/met_point_sfc_&MODEL;_@Y@m@d@H_#fcst#.log</cyclestr></join>
+ 
+  &VX_VARS; 
+
+  <envar>
+    <name>UTIL_EXEC</name>
+    <value>&UTIL_EXEC;</value>
+  </envar>
+  <envar>
+    <name>PNT_OBS_DIR</name>
+    <value>&NDAS_PNT_OBS_DIR;</value>
+  </envar>
+  <envar>
+    <name>GRID_VX_LIST</name>
+    <value>G218</value>
+  </envar>
+
+
+  <dependency>
+    <and>
+      <datadep age="60">&ROTDIR;/<cyclestr>@Y@m@d@H/pgrbq#fcst#.gfs.@Y@m@d@H.grib2</cyclestr></datadep>
+      <datadep age="60">&NDAS_PNT_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/prepbufr.ndas.@Y@m@d.t@Hz.tm12</cyclestr></datadep>
+      <sh>grep 'run_met_point_sfc=YES' <cyclestr>&SWITCH_FILE;</cyclestr></sh>
+    </and>
+  </dependency>
+
+</task> <!--task name="met_point"-->
+

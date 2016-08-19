@@ -1,0 +1,26 @@
+<task name="chgres" maxtries="&MAX_TRIES;" cycledefs="00Z">
+  <command>&GMTB_SCRIPTS;/chgres_driver.ksh</command>
+
+   <account>&PROJECT;</account>
+   <queue>&QE;</queue>
+   <cores>12</cores>
+   <walltime>00:05:00</walltime>
+   <jobname><cyclestr>chgres_@Y@m@d@H</cyclestr></jobname>
+   <join><cyclestr>&LOG;/chgres/chgres_@Y@m@d@H.log</cyclestr></join>
+
+   <envar><name>CHGRES_DIR</name><value>&WORKFLOW_HOME;/chgres</value></envar>
+   <envar><name>yyyymmddhh</name><value><cyclestr>@Y@m@d@H</cyclestr></value></envar>
+   <envar><name>STMP</name><value>&STMP;</value></envar>
+   <envar><name>ROTDIR</name><value>&ROTDIR;</value></envar>
+  
+   <dependency>
+     <and>
+       <datadep><cyclestr>&WORKFLOW_HOME;/chgres/input/gfnanl.gfs.@Y@m@d@H</cyclestr></datadep>
+       <datadep><cyclestr>&WORKFLOW_HOME;/chgres/input/sfnanl.gfs.@Y@m@d@H</cyclestr></datadep>
+    </and>
+<!--  JKH
+     <taskdep task="input"/> 
+-->
+   </dependency>
+
+</task> 

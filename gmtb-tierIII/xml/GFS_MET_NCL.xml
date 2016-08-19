@@ -1,0 +1,603 @@
+<?xml version="1.0"?>
+<!DOCTYPE workflow
+[
+  <!ENTITY PROJ_HOME                          "/scratch4/BMC/gmtb/gmtb-tierIII">
+  <!ENTITY PROJ_DATA                          "&PROJ_HOME;/OUTPUT/prtutornems_0p25">
+<!--  <!ENTITY SCRIPTS                            "&PROJ_HOME;/bin">-->
+  <!ENTITY SCRIPTS                            "/scratch4/BMC/gmtb/harrold/gmtb-tierIII/bin">
+  <!ENTITY CONSTANT                           "&SCRIPTS;/constants.ksh">
+  <!ENTITY LOG                                "&PROJ_DATA;/log/">
+
+  <!ENTITY MET_HOME                           "/scratch4/BMC/dtc/MET/met-5.1">
+  <!ENTITY MET_EXEC                           "&MET_HOME;/bin">
+<!--  <!ENTITY MET_CONFIG                         "&PROJ_HOME;/parm/met_config">-->
+  <!ENTITY MET_CONFIG                         "/scratch4/BMC/gmtb/harrold/gmtb-tierIII/parm/met_config">
+  <!ENTITY UTIL_EXEC                          "&PROJ_HOME;/util">
+  <!ENTITY MOAD_DATAROOT                      "&PROJ_DATA;/DOMAINS"><!-- Model output base dir. (Input for this task) -->
+  
+  <!-- Observation locations -->
+  <!ENTITY OBS_DIR                            "&PROJ_HOME;/vx_data">
+  <!ENTITY PNT_OBS_DIR                        "/scratch4/NCEPDEV/global/noscrub/stat/prepbufr">
+  <!ENTITY GFS_ANL_OBS_DIR                    "&OBS_DIR;/analyses/gfs_0p25">
+  <!ENTITY CLIMO_FILE_DIR                     "/scratch4/NCEPDEV/global/save/Fanglin.Yang/VRFY/vsdb/nwprod/fix">
+  <!ENTITY CCPA_OBS_DIR                       "&OBS_DIR;/gridded/raw/ccpa">
+  <!ENTITY CMORPH_OBS_DIR                       "&OBS_DIR;/gridded/proc/cmorph">
+
+  <!ENTITY FCST_LENGTH "48"><!-- NOT USED HERE??  -->
+  <!ENTITY BASE_CYCLE  "2016012200"> <!-- Analysis time -->
+
+  <!ENTITY PROJECT "gmtb"> <!-- Account on Theia (monthly)-->
+  <!ENTITY SCHED "moabtorque"><!-- Name of batch system -->
+  <!ENTITY QE "batch"> <!-- Queue name -->
+
+  <!ENTITY GRID_VX_LIST "G104 G218"> <!-- NCEP Grids used for verification -->
+     <!-- GRID_VX_LIST is supported for G104 and G218 in graphics. 
+          Any NCEP Pre-defined grid is accepted for the MET verification jobs -->
+  <!ENTITY RES_LIST "0p25"><!-- Grib input resolution -->
+]>
+
+<workflow realtime="F" scheduler="&SCHED;" cyclethrottle="10">
+
+  <cycledef group="00Z">201601220000 201601220000 00:24:00:00</cycledef>
+
+  <log verbosity="10"><cyclestr>&LOG;/workflow/workflow_@Y@m@d@H.log</cyclestr></log>
+
+  <metatask>
+  
+    <var name="model">GFSnems</var>
+
+    <metatask>
+
+      <var name="fcst">000 006 012 018 024</var>
+      <var name="valid">12 18 00 06 12</var>
+
+      <task name="met_point_sfc_#model#_#fcst#" maxtries="4" cycledefs="00Z">
+
+        <command>&SCRIPTS;/met_point_verf_sfc.ksh</command>
+      
+        <account>&PROJECT;</account>
+        <queue>&QE;</queue>
+        <cores>1</cores>
+        <walltime>00:30:00</walltime>
+        <jobname><cyclestr>met_point_sfc_#model#_@Y@m@d@H_#fcst#</cyclestr></jobname>
+        <join><cyclestr>&LOG;/met/met_point_sfc_@Y@m@d@H_#fcst#.log</cyclestr></join> 
+
+        <envar>
+          <name>CONSTANT</name>
+          <value>&CONSTANT;</value>
+        </envar>
+        <envar>
+          <name>START_TIME</name>
+          <value><cyclestr>@Y@m@d@H</cyclestr></value>
+        </envar>
+        <envar>
+          <name>FCST_TIME</name>
+          <value>#fcst#</value>
+        </envar>
+        <envar>
+          <name>RES_LIST</name>
+          <value>&RES_LIST;</value>
+        </envar>
+        <envar>
+          <name>GRID_VX_LIST</name>
+          <value>G218</value>
+        </envar>
+        <envar>
+          <name>MET_EXE_ROOT</name>
+          <value>&MET_EXEC;</value>
+        </envar>
+        <envar>
+          <name>MET_CONFIG</name>
+          <value>&MET_CONFIG;</value>
+        </envar>
+        <envar>
+          <name>UTIL_EXEC</name>
+          <value>&UTIL_EXEC;</value>
+        </envar>
+        <envar>
+          <name>MOAD_DATAROOT</name>
+          <value><cyclestr>&MOAD_DATAROOT;/@Y@m@d@H</cyclestr></value>
+        </envar>
+        <envar>
+          <name>PNT_OBS_DIR</name>
+          <value>&PNT_OBS_DIR;</value>
+        </envar>
+        <envar>
+          <name>MODEL</name>
+          <value>#model#</value>
+        </envar>
+
+        <dependency>
+          <and>
+    	    <datadep age="60">&MOAD_DATAROOT;/<cyclestr>@Y@m@d@H/mdlprd/pgrbq#fcst#.gfs.@Y@m@d@H.grib2</cyclestr></datadep>
+	    <datadep age="60">&PNT_OBS_DIR;/ndas/<cyclestr offset="#fcst#:00:00">ndas.@Y@m@d/ndas.t#valid#z.prepbufr.tm12</cyclestr></datadep>
+            <sh>grep 'run_met_point_sfc=YES' <cyclestr>&SCRIPTS;/test.status</cyclestr></sh>
+          </and>
+        </dependency>
+
+      </task> <!--task name="met_point_sfc"-->
+
+    </metatask> <!--#fcst# for met_point_sfc -->
+
+    <metatask>
+
+      <var name="fcst">000 006 012 018 024</var>
+
+      <task name="met_point_ua_#model#_#fcst#" maxtries="3" cycledefs="00Z">
+
+        <command>&SCRIPTS;/met_point_verf_ua.ksh</command>
+      
+        <account>&PROJECT;</account>
+        <queue>&QE;</queue>
+        <cores>1</cores>
+        <walltime>00:30:00</walltime>
+        <jobname><cyclestr>met_point_ua_#model#_@Y@m@d@H_#fcst#</cyclestr></jobname>
+        <join><cyclestr>&LOG;/met/met_point_ua_@Y@m@d@H_#fcst#.log</cyclestr></join> 
+
+        <envar>
+          <name>CONSTANT</name>
+          <value>&CONSTANT;</value>
+        </envar>
+        <envar>
+          <name>START_TIME</name>
+          <value><cyclestr>@Y@m@d@H</cyclestr></value>
+        </envar>
+        <envar>
+          <name>FCST_TIME</name>
+          <value>#fcst#</value>
+        </envar>
+        <envar>
+          <name>RES_LIST</name>
+          <value>0p25</value>
+        </envar>
+        <envar>
+          <name>GRID_VX_LIST</name>
+          <value>G3 G218</value>
+        </envar>
+        <envar>
+          <name>MET_EXE_ROOT</name>
+          <value>&MET_EXEC;</value>
+        </envar>
+        <envar>
+          <name>MET_CONFIG</name>
+          <value>&MET_CONFIG;</value>
+        </envar>
+        <envar>
+          <name>UTIL_EXEC</name>
+          <value>&UTIL_EXEC;</value>
+        </envar>
+        <envar>
+          <name>MOAD_DATAROOT</name>
+          <value><cyclestr>&MOAD_DATAROOT;/@Y@m@d@H</cyclestr></value>
+        </envar>
+        <envar>
+          <name>PNT_OBS_DIR</name>
+          <value>&PNT_OBS_DIR;</value>
+        </envar>
+        <envar>
+          <name>MODEL</name>
+          <value>#model#</value>
+        </envar>
+
+        <dependency>
+          <and>
+    	    <datadep age="60">&MOAD_DATAROOT;/<cyclestr>@Y@m@d@H/mdlprd/pgrbq#fcst#.gfs.@Y@m@d@H.grib2</cyclestr></datadep>
+	  <or>  
+	    <datadep age="60">&PNT_OBS_DIR;/gdas/<cyclestr offset="#fcst#:00:00">prepbufr.gdas.@Y@m@d@H</cyclestr></datadep>
+	  </or>
+          <sh>grep 'run_met_point_ua=YES' <cyclestr>&SCRIPTS;/test.status</cyclestr></sh>
+          </and>
+        </dependency>
+ 
+      </task> <!--task name="met_point_ua"-->
+
+      <task name="met_grid_anl_#model#_#fcst#" maxtries="2" cycledefs="00Z">
+
+        <command>&SCRIPTS;/met_grid_anl_verf.ksh</command>
+      
+        <account>&PROJECT;</account>
+        <queue>&QE;</queue>
+        <cores>1</cores>
+        <walltime>00:10:00</walltime>
+        <jobname><cyclestr>met_grid_anl_#model#_@Y@m@d@H_#fcst#</cyclestr></jobname>
+        <join><cyclestr>&LOG;/met/met_grid_anl_@Y@m@d@H_#fcst#.log</cyclestr></join> 
+
+        <envar>
+          <name>CONSTANT</name>
+          <value>&CONSTANT;</value>
+        </envar>
+        <envar>
+          <name>START_TIME</name>
+          <value><cyclestr>@Y@m@d@H</cyclestr></value>
+        </envar>
+        <envar>
+          <name>FCST_TIME</name>
+         <value>#fcst#</value>
+        </envar>
+        <envar>
+          <name>RES_LIST</name>
+          <value>&RES_LIST;</value>
+        </envar>
+        <envar>
+          <name>GRID_VX_LIST</name>
+          <value>G3</value>
+        </envar>
+        <envar>
+          <name>MET_EXE_ROOT</name>
+          <value>&MET_EXEC;</value>
+        </envar>
+        <envar>
+          <name>MET_CONFIG</name>
+          <value>&MET_CONFIG;</value>
+        </envar>
+        <envar>
+          <name>UTIL_EXEC</name>
+          <value>&UTIL_EXEC;</value>
+        </envar>
+        <envar>
+          <name>MOAD_DATAROOT</name>
+          <value><cyclestr>&MOAD_DATAROOT;/@Y@m@d@H</cyclestr></value>
+        </envar>
+        <envar>
+          <name>ANL_OBS_DIR</name>
+          <value>&GFS_ANL_OBS_DIR;</value>
+        </envar>
+        <envar>
+          <name>CLIMO_FILE_DIR</name>
+          <value>&CLIMO_FILE_DIR;</value>
+        </envar>
+        <envar>
+          <name>MODEL</name>
+          <value>#model#</value>
+        </envar>
+
+        <dependency>
+          <and>
+            <datadep age="60">&MOAD_DATAROOT;/<cyclestr>@Y@m@d@H/mdlprd/pgrbq#fcst#.gfs.@Y@m@d@H.grib2</cyclestr></datadep>
+	    <datadep age="60">&GFS_ANL_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d@H/gfs.t@Hz.pgrb2.0p25.anl</cyclestr></datadep>
+            <sh>grep 'run_grid_anl=YES' <cyclestr>&SCRIPTS;/test.status</cyclestr></sh>
+          </and>
+        </dependency>
+
+      </task> <!--task name="met_grid_anl"-->
+
+    </metatask> <!--#fcst# for met_point_ua and met_grid_anl-->
+
+   <metatask>
+
+      <var name="fcst">006 012 018 024 030 036 042 048 054 060</var>
+      <var name="valid">06 12 18 00 06 12 18 00 06 12</var>
+
+      <task name="met_qpf_06h_#model#_#fcst#" maxtries="2" cycledefs="00Z">
+
+      <command>&SCRIPTS;/met_qpf_verf_all.ksh</command>
+
+      <account>&PROJECT;</account>
+      <queue>&QE;</queue>
+      <cores>1</cores>
+      <walltime>02:00:00</walltime>
+      <jobname><cyclestr>met_qpf_06h_#model#_@Y@m@d@H_#fcst#</cyclestr></jobname>
+        <join><cyclestr>&LOG;/met/met_qpf_06h_@Y@m@d@H_#fcst#.log</cyclestr></join>
+
+      <envar>
+        <name>CONSTANT</name>
+        <value>&CONSTANT;</value>
+      </envar>
+      <envar>
+        <name>START_TIME</name>
+        <value><cyclestr>@Y@m@d@H</cyclestr></value>
+      </envar>
+      <envar>
+        <name>FCST_TIME_LIST</name>
+        <value>#fcst#</value>
+      </envar>
+      <envar>
+        <name>ACCUM_TIME</name>
+        <value>06</value>
+      </envar>
+      <envar>
+        <name>BUCKET_TIME</name>
+        <value>6</value>
+      </envar>
+      <envar>
+        <name>RES_LIST</name>
+        <value>0p25</value>
+      </envar>
+      <envar>
+        <name>GRID_VX_LIST</name>
+        <value>G218</value>
+      </envar>
+      <envar>
+        <name>MET_EXE_ROOT</name>
+        <value>&MET_EXEC;</value>
+      </envar>
+      <envar>
+        <name>MET_CONFIG</name>
+        <value>&MET_CONFIG;</value>
+      </envar>
+      <envar>
+        <name>UTIL_EXEC</name>
+        <value>&UTIL_EXEC;</value>
+      </envar>
+      <envar>
+        <name>MOAD_DATAROOT</name>
+        <value><cyclestr>&MOAD_DATAROOT;/@Y@m@d@H</cyclestr></value>
+      </envar>
+      <envar>
+        <name>RAW_OBS</name>
+        <value>&CCPA_OBS_DIR;</value>
+      </envar>
+        <envar>
+          <name>OBTYPE</name>
+          <value>ccpa</value>
+        </envar>
+      <envar>
+        <name>MODEL</name>
+        <value>#model#</value>
+      </envar>
+
+      <dependency>
+        <and>
+          <datadep age="60">&MOAD_DATAROOT;/<cyclestr>@Y@m@d@H/mdlprd/pgrbq#fcst#.gfs.@Y@m@d@H.grib2</cyclestr></datadep>
+          <datadep age="60">&CCPA_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/ccpa_conus_hrap_t#valid#z_06h_gb2</cyclestr></datadep>
+          <sh>grep 'run_met_qpf_06h=YES' <cyclestr>&SCRIPTS;/test.status</cyclestr></sh>
+        </and>
+      </dependency>
+
+    </task> <!--task name="met_qpf_06h"-->
+
+    </metatask> <!--#fcst# and #valid# for met_qpf_06h-->
+
+   <metatask>
+
+      <var name="fcst">036 060</var>
+      <var name="prev_fcst">012 036</var>
+
+      <task name="met_qpf_24h_#model#_#fcst#" maxtries="3" cycledefs="00Z">
+
+        <command>&SCRIPTS;/met_qpf_verf_all.ksh</command>
+
+        <account>&PROJECT;</account>
+        <queue>&QE;</queue>
+        <cores>1</cores>
+        <walltime>02:00:00</walltime>
+        <jobname><cyclestr>met_qpf_24h_#model#_@Y@m@d@H_#fcst#</cyclestr></jobname>
+          <join><cyclestr>&LOG;/met/met_qpf_24h_@Y@m@d@H_#fcst#.log</cyclestr></join>
+
+        <envar>
+          <name>CONSTANT</name>
+          <value>&CONSTANT;</value>
+        </envar>
+        <envar>
+          <name>START_TIME</name>
+          <value><cyclestr>@Y@m@d@H</cyclestr></value>
+        </envar>
+        <envar>
+          <name>FCST_TIME_LIST</name>
+          <value>#fcst#</value>
+        </envar>
+        <envar>
+          <name>ACCUM_TIME</name>
+          <value>24</value>
+        </envar>
+        <envar>
+          <name>BUCKET_TIME</name>
+          <value>6</value>
+        </envar>
+        <envar>
+          <name>OBS_BUCKET</name>
+          <value>6</value>
+        </envar>
+        <envar>
+          <name>RES_LIST</name>
+          <value>0p25</value>
+        </envar>
+        <envar>
+          <name>GRID_VX_LIST</name>
+          <value>G218</value>
+        </envar>
+        <envar>
+          <name>MET_EXE_ROOT</name>
+          <value>&MET_EXEC;</value>
+        </envar>
+        <envar>
+          <name>MET_CONFIG</name>
+          <value>&MET_CONFIG;</value>
+        </envar>
+        <envar>
+          <name>UTIL_EXEC</name>
+          <value>&UTIL_EXEC;</value>
+        </envar>
+        <envar>
+          <name>MOAD_DATAROOT</name>
+          <value><cyclestr>&MOAD_DATAROOT;/@Y@m@d@H</cyclestr></value>
+        </envar>
+        <envar>
+          <name>RAW_OBS</name>
+          <value>&CCPA_OBS_DIR;</value>
+        </envar>
+        <envar>
+          <name>OBTYPE</name>
+          <value>ccpa</value>
+        </envar>
+        <envar>
+          <name>MODEL</name>
+          <value>#model#</value>
+        </envar>
+
+        <dependency>
+          <and>
+            <datadep age="60">&MOAD_DATAROOT;/<cyclestr>@Y@m@d@H/mdlprd/pgrbq#fcst#.gfs.@Y@m@d@H.grib2</cyclestr></datadep>
+            <datadep age="60">&CCPA_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/ccpa_conus_hrap_t12z_06h_gb2</cyclestr></datadep>
+            <datadep age="60">&CCPA_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/ccpa_conus_hrap_t06z_06h_gb2</cyclestr></datadep>
+            <datadep age="60">&CCPA_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/ccpa_conus_hrap_t00z_06h_gb2</cyclestr></datadep>
+            <datadep age="60">&CCPA_OBS_DIR;/<cyclestr offset="#prev_fcst#:00:00">@Y@m@d/ccpa_conus_hrap_t18z_06h_gb2</cyclestr></datadep>
+            <sh>grep 'run_met_qpf_24h=YES' <cyclestr>&SCRIPTS;/test.status</cyclestr></sh>
+          </and>
+        </dependency>
+
+     </task> <!--task name="met_qpf_24h"-->
+
+    </metatask> <!--#fcst# for met_qpf_24-->
+
+   <metatask>
+
+      <var name="fcst">036 060</var>
+      <var name="prev_fcst">012 036</var>
+
+      <task name="met_qpf_global_24h_#model#_#fcst#" maxtries="3" cycledefs="00Z">
+
+        <command>&SCRIPTS;/met_qpf_verf_all.ksh</command>
+
+        <account>&PROJECT;</account>
+        <queue>&QE;</queue>
+        <cores>1</cores>
+        <walltime>02:00:00</walltime>
+        <jobname><cyclestr>met_qpf_global_24h_#model#_@Y@m@d@H_#fcst#</cyclestr></jobname>
+          <join><cyclestr>&LOG;/met/met_qpf_global_24h_@Y@m@d@H_#fcst#.log</cyclestr></join>
+
+        <envar>
+          <name>CONSTANT</name>
+          <value>&CONSTANT;</value>
+        </envar>
+        <envar>
+          <name>START_TIME</name>
+          <value><cyclestr>@Y@m@d@H</cyclestr></value>
+        </envar>
+        <envar>
+          <name>FCST_TIME_LIST</name>
+          <value>#fcst#</value>
+        </envar>
+        <envar>
+          <name>ACCUM_TIME</name>
+          <value>24</value>
+        </envar>
+        <envar>
+          <name>MODEL_BUCKET</name>
+          <value>6</value>
+        </envar>
+        <envar>
+          <name>OBS_BUCKET</name>
+          <value>1</value>
+        </envar>
+        <envar>
+          <name>RES_LIST</name>
+          <value>0p25</value>
+        </envar>
+        <envar>
+          <name>GRID_VX_LIST</name>
+          <value>G3</value>
+        </envar>
+        <envar>
+          <name>MET_EXE_ROOT</name>
+          <value>&MET_EXEC;</value>
+        </envar>
+        <envar>
+          <name>MET_CONFIG</name>
+          <value>&MET_CONFIG;</value>
+        </envar>
+        <envar>
+          <name>UTIL_EXEC</name>
+          <value>&UTIL_EXEC;</value>
+        </envar>
+        <envar>
+          <name>MOAD_DATAROOT</name>
+          <value><cyclestr>&MOAD_DATAROOT;/@Y@m@d@H</cyclestr></value>
+        </envar>
+        <envar>
+          <name>RAW_OBS</name>
+          <value>&CMORPH_OBS_DIR;</value>
+        </envar>
+        <envar>
+          <name>OBTYPE</name>
+          <value>cmorph</value>
+        </envar>
+        <envar>
+          <name>MODEL</name>
+          <value>#model#</value>
+        </envar>
+
+        <dependency>
+          <and>
+            <datadep age="60">&MOAD_DATAROOT;/<cyclestr>@Y@m@d@H/mdlprd/pgrbq#fcst#.gfs.@Y@m@d@H.grib2</cyclestr></datadep>
+            <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#prev_fcst#:00:00">@Y@m@d/cmorph_@Y@m@d13_01h.nc</cyclestr></datadep>
+            <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#prev_fcst#:00:00">@Y@m@d/cmorph_@Y@m@d14_01h.nc</cyclestr></datadep>
+            <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#prev_fcst#:00:00">@Y@m@d/cmorph_@Y@m@d15_01h.nc</cyclestr></datadep>
+            <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#prev_fcst#:00:00">@Y@m@d/cmorph_@Y@m@d16_01h.nc</cyclestr></datadep>
+            <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#prev_fcst#:00:00">@Y@m@d/cmorph_@Y@m@d17_01h.nc</cyclestr></datadep>
+            <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#prev_fcst#:00:00">@Y@m@d/cmorph_@Y@m@d18_01h.nc</cyclestr></datadep>
+            <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#prev_fcst#:00:00">@Y@m@d/cmorph_@Y@m@d19_01h.nc</cyclestr></datadep>
+            <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#prev_fcst#:00:00">@Y@m@d/cmorph_@Y@m@d20_01h.nc</cyclestr></datadep>
+            <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#prev_fcst#:00:00">@Y@m@d/cmorph_@Y@m@d21_01h.nc</cyclestr></datadep>
+            <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#prev_fcst#:00:00">@Y@m@d/cmorph_@Y@m@d22_01h.nc</cyclestr></datadep>
+            <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#prev_fcst#:00:00">@Y@m@d/cmorph_@Y@m@d23_01h.nc</cyclestr></datadep>
+            <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/cmorph_@Y@m@d00_01h.nc</cyclestr></datadep>
+            <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/cmorph_@Y@m@d01_01h.nc</cyclestr></datadep>
+            <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/cmorph_@Y@m@d02_01h.nc</cyclestr></datadep>
+            <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/cmorph_@Y@m@d03_01h.nc</cyclestr></datadep>
+            <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/cmorph_@Y@m@d04_01h.nc</cyclestr></datadep>
+            <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/cmorph_@Y@m@d05_01h.nc</cyclestr></datadep>
+            <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/cmorph_@Y@m@d06_01h.nc</cyclestr></datadep>
+            <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/cmorph_@Y@m@d07_01h.nc</cyclestr></datadep>
+            <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/cmorph_@Y@m@d08_01h.nc</cyclestr></datadep>
+            <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/cmorph_@Y@m@d09_01h.nc</cyclestr></datadep>
+            <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/cmorph_@Y@m@d10_01h.nc</cyclestr></datadep>
+            <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/cmorph_@Y@m@d11_01h.nc</cyclestr></datadep>
+            <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/cmorph_@Y@m@d12_01h.nc</cyclestr></datadep>
+            <sh>grep 'run_met_qpf_global_24h=YES' <cyclestr>&SCRIPTS;/test.status</cyclestr></sh>
+          </and>
+        </dependency>
+
+     </task> <!--task name="met_qpf_global_24h"-->
+
+    </metatask> <!--#fcst# for met_qpf_global_24-->
+
+    <metatask>
+
+      <var name="fcst">000 006 012 018 024</var>
+
+      <task name="graphics_#model#_#fcst#" maxtries="2" cycledefs="00Z">
+ 
+        <command>&SCRIPTS;/GMTB_graphics.py</command>
+      
+        <account>&PROJECT;</account>
+        <queue>&QE;</queue>
+        <nodes>1:ppn=4</nodes>
+        <walltime>00:10:00</walltime>
+        <jobname><cyclestr>graphics_#model#_@Y@m@d@H_#fcst#</cyclestr></jobname>
+        <join><cyclestr>./graphics_#model#_@Y@m@d@H_#fcst#.log</cyclestr></join> 
+
+        <envar>
+          <name>MOAD_DATAROOT</name>
+          <value><cyclestr>&MOAD_DATAROOT;/@Y@m@d@H</cyclestr></value>
+        </envar>
+        <envar>
+          <name>START_TIME</name>
+          <value><cyclestr>@Y@m@d@H</cyclestr></value>
+        </envar>
+        <envar>
+          <name>FCST_TIME</name>
+          <value>#fcst#</value>
+        </envar>
+        <envar>
+          <name>GRID_VX_LIST</name>
+          <value>&GRID_VX_LIST;</value>
+        </envar>
+        <envar>
+          <name>REGION</name>
+          <value>glob</value>
+        </envar>
+
+        <dependency>
+          <and>
+            <datadep age="60">&MOAD_DATAROOT;/<cyclestr>@Y@m@d@H/mdlprd/pgrbq#fcst#.gfs.@Y@m@d@H.grib2</cyclestr></datadep>
+            <sh>grep 'run_graphics=YES' <cyclestr>&SCRIPTS;/test.status</cyclestr></sh>
+          </and>
+        </dependency>
+      </task> <!--task name="graphics"-->
+
+    </metatask> <!--#fcst# for graphics -->
+
+  </metatask> <!--#model# for beginning to the end-->
+
+</workflow>

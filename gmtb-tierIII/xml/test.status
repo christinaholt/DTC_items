@@ -1,0 +1,9 @@
+run_met_point_sfc=YES
+run_met_point_ua=YES
+run_met_tc=NO
+run_met_qpf_06h=YES
+run_met_qpf_24h=YES
+run_met_qpf_global_24h=YES
+run_grid_anl=YES
+run_graphics=YES
+run_subset=YES

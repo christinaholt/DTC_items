@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE workflow
+[
+  <!-- MODEL -->
+  <!ENTITY MODEL             "sasctrl">
+  <!ENTITY OP_SWITCH         "FALSE">  <!-- Switch to determine of data changes to 12 hour output after 240 h. TRUE for yes/operations. FALSE for no/research.-->
+
+  <!-- Locations for GMTB scripts for workflow -->
+  <!ENTITY WORKFLOW_HOME     "/scratch4/BMC/gmtb/gmtb-tierIII">
+  <!ENTITY GMTB_SCRIPTS      "&WORKFLOW_HOME;/bin">
+
+  <!-- Locations for additional space for obs or output needed after archive -->
+  <!ENTITY VX_DATA_DIR      "/scratch3/BMC/dtc-hwrf/GMTB">
+  <!ENTITY VX_SAVE_DIR      "&VX_DATA_DIR;/vx_out/&MODEL;">
+
+  <!-- XML switches file. Turn off vx components using this file. -->
+  <!ENTITY SWITCH_FILE      "&WORKFLOW_HOME;/xml/test.status">
+
+  <!-- Tape archive location --> 
+  <!ENTITY VX_ARCHIVE       "hpss:/BMC/gmtb/2year/&MODEL;">
+
+  <!-- EMC Script areas needed for running the forecast -->
+  <!ENTITY EXPDIR           "&WORKFLOW_HOME;/parm/&MODEL;">
+  <!ENTITY ROTDIR           "&WORKFLOW_HOME;/&MODEL;">
+  <!ENTITY STMP             "&WORKFLOW_HOME;/stmp3/">
+  <!ENTITY PARA_CONFIG      "&EXPDIR;/para_config_T574_NEMS_&MODEL;">
+
+  <!-- Location for HWRF Scripts (temporary until we decide what to do with them) -->
+  <!ENTITY HOMEhwrf         "/scratch4/BMC/dtc/Christina.Holt/HWRF_trunk">
+
+  <!-- Verification-related locations and variables -->
+  <!ENTITY CONSTANT       "&GMTB_SCRIPTS;/constants.ksh">
+  <!ENTITY UTIL_EXEC      "&WORKFLOW_HOME;/util">
+  <!ENTITY VX_OUTPUT      "&WORKFLOW_HOME;/vx_out/&MODEL;">
+
+  <!-- MET Installation -->
+  <!ENTITY MET_HOME          "/scratch4/BMC/dtc/MET/met-5.2_beta3">
+  <!ENTITY MET_EXEC          "&MET_HOME;/bin">
+  <!ENTITY MET_CONFIG        "&WORKFLOW_HOME;/parm/met_config">
+
+  <!-- Observation locations -->
+  <!ENTITY OBS_DIR                  "&VX_DATA_DIR;/vx_data">
+  <!ENTITY GDAS_PNT_OBS_DIR         "/scratch4/NCEPDEV/global/noscrub/stat/prepbufr">
+  <!ENTITY NDAS_PNT_OBS_DIR         "&OBS_DIR;/ndas/valid">
+  <!ENTITY TRK_OBS_DIR              "&OBS_DIR;/best_tracks">
+  <!ENTITY CCPA_OBS_DIR             "&OBS_DIR;/ccpa">
+  <!ENTITY CMORPH_OBS_DIR           "&OBS_DIR;/cmorph">
+  <!ENTITY CMORPH_24H_BUCKET        "&CMORPH_OBS_DIR;/BUCKET_24h">
+  <!ENTITY GFS_ANL_OBS_DIR          "&OBS_DIR;/analyses/gfs_0p25">
+  <!ENTITY CLIMO_FILE_DIR           "/scratch4/NCEPDEV/global/save/Fanglin.Yang/VRFY/vsdb/nwprod/fix">
+
+  <!-- Common job submission variables -->
+  <!ENTITY LOG               "&WORKFLOW_HOME;/log"> <!--CRH, fix me!--> 
+  <!ENTITY PROJECT           "gmtb"> <!--annual-->
+  <!ENTITY SCHED             "moabtorque">
+  <!ENTITY QE                "batch"> 
+  <!ENTITY SERVICE           "service">
+ 
+  <!ENTITY MAX_TRIES         "2">
+
+  <!ENTITY VX_VARS     SYSTEM "vx_env.ent">
+
+  <!-- Load in all tasks to be referenced below -->
+  <!ENTITY % TASKS       SYSTEM "tasks/all.ent">
+
+  %TASKS;
+
+]>
+
+<workflow realtime="F" scheduler="&SCHED;" cyclethrottle="2">
+
+   <cycledef group="00Z">201512040000 201512160000 00:24:00:00</cycledef>
+
+   <log verbosity="100"><cyclestr>&LOG;/chgres_workflow/workflow_&MODEL;_@Y@m@d@H.log</cyclestr></log>
+
+   <!-- Each task is individually defined in a tasks/.ent file -->
+
+   &fcst_in_task; 
+   &chgres_task;
+
+</workflow>

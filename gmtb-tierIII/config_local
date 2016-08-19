@@ -1,0 +1,27 @@
+# Each of the following variables are typically set in the Rocoto XML script. 
+# Sourcing this file before running the graphics is helpful if you are not running with Rocoto
+
+# ROTDIR is the input top dir. for the graphics package (output from model). 
+# MOAD_DATAROOT is the output top dir. for the graphics package (output from graphics). 
+# START_TIME is the analysis time
+# FORECAST_TIME is the forecast time in 3 digit format
+# GRID_VX_LIST controls the grids that are provided. Possible values are glob, G104, G218. 
+#     Input file will be regridded to the NCEP Predefined grid if the item has a leading "G". 
+#     NCEP Grids must be defined in regrib.py
+#     New map projections are defined in basemaps in make_basemap.def_bm
+#     Available values include: 
+#         glob          -- plots the input file directly
+#         G104          -- NCEP G104: NPS CONUS
+#         G218          -- NCEP G218: CONUS 12km Lambert
+#         G3            -- NCEP G3: Global 1 deg lat/lon
+#         nh_mill       -- Original grid, NH
+#         sh_mill       -- Original grid, SH
+#         trop_mill     -- Original grid, Trop
+#         nps           -- Original grid, full NPS projection
+#         sps           -- Original grid, full SPS projection
+export MOAD_DATAROOT='/scratch4/BMC/gmtb/gmtb-tierIII/sasctrl/'
+export START_TIME=2016011500
+export FCST_TIME=024
+export GRID_VX_LIST='glob'
+export REGION='glob'
+export ROTDIR='/scratch4/BMC/gmtb/gmtb-tierIII/sasctrl/'

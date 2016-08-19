@@ -1,0 +1,20 @@
+<task name="scrub" maxtries="&MAX_TRIES;" cycledefs="00Z" throttle="1">
+
+   <command><cyclestr>rm -rf &ROTDIR;/@Y@m@d@H &VX_OUTPUT;/@Y@m@d@H</cyclestr></command>
+   <jobname>scrub_<cyclestr>@Y@m@d@H</cyclestr></jobname>
+   <account>&PROJECT;</account>
+   <queue>&QE;</queue>
+   <cores>1</cores>
+   <envar>
+     <name>TOTAL_TASKS</name>
+     <value>1</value>
+   </envar>
+   <walltime>00:10</walltime>
+   <memory>1G</memory>
+   <join><cyclestr>&LOG;/scrub/crub_&MODEL;_@Y@m@d@H.log</cyclestr></join>
+  
+   <dependency>
+     <taskdep task="archive_task"/>
+   </dependency>
+
+</task> 

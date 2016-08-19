@@ -1,0 +1,19 @@
+<!-- LIST OF ALL TASKS -->
+
+<!ENTITY fcst_in_task          SYSTEM "input_fcst.ent">
+<!ENTITY vx_in_task            SYSTEM "input_vx.ent">
+<!ENTITY gfs_fcst_in_task      SYSTEM "input_gfsfcst.ent">
+<!ENTITY chgres_task  	       SYSTEM "chgres.ent">
+<!ENTITY forecast_task         SYSTEM "forecast.ent">
+<!ENTITY met_point_sfc         SYSTEM "met_point_sfc.ent">
+<!ENTITY met_point_ua          SYSTEM "met_point_ua.ent">
+<!ENTITY met_tc                SYSTEM "met_tc.ent">
+<!ENTITY met_grid_anl          SYSTEM "met_grid_anl.ent">
+<!ENTITY met_qpf_24hr	       SYSTEM "met_qpf_24hr.ent">
+<!ENTITY met_qpf_global_24hr   SYSTEM "met_qpf_global_24hr.ent">
+<!ENTITY met_qpf_6hr	       SYSTEM "met_qpf_6hr.ent">
+<!ENTITY graphics              SYSTEM "graphics.ent">
+<!ENTITY sub_grid_task         SYSTEM "subset_grib.ent">
+<!ENTITY cp_vx_task            SYSTEM "cp_vx.ent">
+<!ENTITY archive_task          SYSTEM "archive.ent">
+<!ENTITY scrub_task            SYSTEM "scrub.ent">

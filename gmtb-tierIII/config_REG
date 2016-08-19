@@ -1,0 +1,9 @@
+
+# IDIR is the input data directory
+# ODIR is the desired output directory for figures
+# FBASE is the basename for the file. Options: sigf and flxf
+
+export IDIR='/scratch4/BMC/gmtb/hjiang/stmp3/Hongli.Jiang/rt_2423/gfs_slg'
+export ODIR='/scratch4/BMC/gmtb/Christina.Holt/reg_test_figs/rt_2423'
+export FBASE='flxf'
+

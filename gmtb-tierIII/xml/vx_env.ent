@@ -1,0 +1,41 @@
+<envar>
+  <name>CONSTANT</name>
+  <value>&CONSTANT;</value>
+</envar>
+<envar>
+  <name>START_TIME</name>
+  <value><cyclestr>@Y@m@d@H</cyclestr></value>
+</envar>
+<envar>
+  <name>FCST_TIME</name>
+ <value>#fcst#</value>
+</envar>
+<envar>
+  <name>RES_LIST</name>
+  <value>0p25</value>
+</envar>
+<envar>
+  <name>MET_EXE_ROOT</name>
+  <value>&MET_EXEC;</value>
+</envar>
+<envar>
+  <name>MET_CONFIG</name>
+  <value>&MET_CONFIG;</value>
+</envar>
+<envar>
+  <name>MOAD_DATAROOT</name>
+  <value><cyclestr>&VX_OUTPUT;/@Y@m@d@H</cyclestr></value>
+</envar>
+<envar>
+  <name>ROTDIR</name>
+  <value><cyclestr>&ROTDIR;/@Y@m@d@H</cyclestr></value>
+</envar>
+<envar>
+  <name>MODEL</name>
+  <value>&MODEL;</value>
+</envar>
+<envar>
+  <name>OP_SWITCH</name>
+  <value>&OP_SWITCH;</value>
+</envar>
+

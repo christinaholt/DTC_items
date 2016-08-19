@@ -1,0 +1,42 @@
+To run the graphics for REG graphics: 
+
+1. Export required variables (either via Rocoto workflow or sourcing the 
+   config_REG) 
+2. Load the anaconda python module
+     module use -a /contrib/modulefiles
+     module load anaconda
+3. Submit the REG_graphics.py using the following command: 
+     python REG_graphics.py 
+
+
+
+To add a graphic, edit the REG_graphics.py dictionary, map_confs, and potentially 
+the maps.py dictionary, params, in the set_fig_params method. 
+
+map_confs: sets the desired output figures that will be produced
+params: controls the settings of the figures such as shading intervals and scaling for desired levels
+
+
+If your variables do not exist in params, you must add them there. All values are not required,
+ but some basic information is required. If you are choosing to locate a variable in a grib file
+ using the parameterName value, you must use the figure descriptor (top tag in map_confs) to describe the 
+ variable in the params dictionary entry. (See ULWRF as example). 
+
+To find the exact values that should go into the dictionaries can be found by opening up 
+and instance of Python and looking at the key,value pairs for the grib records. 
+
+1. Open python
+    python
+
+2. Load the pygrib package
+    import pygrib
+
+3. Open the grib file
+    filename='myfile.grb'
+    grbs = pygrib.open(filename)
+
+4. Look at the key value pairs
+    grb  = grbs[##]  !> ## is the grib record number
+    for i in grb.keys():  print i, grb[i]
+
+

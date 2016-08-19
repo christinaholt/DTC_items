@@ -1,0 +1,28 @@
+<task name="cp_vx_&MODEL;" maxtries="&MAX_TRIES;" cycledefs="00Z" throttle="1">
+
+   <command>&GMTB_SCRIPTS;/cp_vx.ksh</command>
+
+   <account>&PROJECT;</account>
+   <queue>&QE;</queue>
+   <cores>1</cores>
+   <walltime>00:20:00</walltime>
+   <jobname><cyclestr>cp_vx_&MODEL;_@Y@m@d@H</cyclestr></jobname>
+   <join><cyclestr>&LOG;/met/cp_vx_&MODEL;_@Y@m@d@H.log</cyclestr></join>
+
+   &VX_VARS;
+
+   <envar>
+     <name>VX_SAVE_DIR</name>
+     <value>&VX_SAVE_DIR;</value>
+   </envar>
+  
+   <dependency>
+    <and>
+     <metataskdep metatask="verification_refcst"/>
+     <metataskdep metatask="verification_refcst_12hr"/>
+     <metataskdep metatask="24_acc_refcst"/>
+     <metataskdep metatask="6_acc_refcst"/>
+    </and>
+   </dependency>
+
+</task> 

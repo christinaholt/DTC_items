@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<!DOCTYPE workflow
+[
+  <!-- MODEL -->
+  <!ENTITY MODEL             "refcst">
+  <!ENTITY OP_SWITCH         "TRUE">  <!-- Switch to determine of data changes to 12 hour output after 240 h. TRUE for yes/operations. FALSE for no/research.-->
+
+  <!-- Locations for GMTB scripts for workflow -->
+  <!ENTITY WORKFLOW_HOME     "/scratch4/BMC/gmtb/gmtb-tierIII">
+  <!ENTITY GMTB_SCRIPTS      "&WORKFLOW_HOME;/bin">
+
+  <!-- Locations for additional space for obs or output needed after archive. Disk archive space. -->
+  <!ENTITY VX_DATA_DIR      "/scratch3/BMC/dtc-hwrf/GMTB">
+  <!ENTITY VX_SAVE_DIR      "&VX_DATA_DIR;/vx_out/&MODEL;">
+
+  <!-- XML switches file. Turn off vx components using this file. -->
+  <!ENTITY SWITCH_FILE      "&WORKFLOW_HOME;/xml/test.status"> 
+
+  <!-- Tape archive location --> 
+  <!ENTITY VX_ARCHIVE       "hpss:/BMC/gmtb/2year/&MODEL;">
+
+  <!-- EMC Script areas needed for running the forecast -->
+  <!ENTITY EXPDIR           "/path/to/save/dir">
+  <!ENTITY ROTDIR           "&WORKFLOW_HOME;/&MODEL;">
+  <!ENTITY PARA_CONFIG      "&EXPDIR;/para_config">
+
+  <!-- Location for HWRF Scripts (temporary until we decide what to do with them) -->
+  <!ENTITY HOMEhwrf         "/scratch4/BMC/dtc/Christina.Holt/HWRF_trunk">
+
+  <!-- Verification-related locations and variables -->
+  <!ENTITY CONSTANT       "&GMTB_SCRIPTS;/constants.ksh">
+  <!ENTITY UTIL_EXEC      "&WORKFLOW_HOME;/util">
+  <!ENTITY VX_OUTPUT      "&WORKFLOW_HOME;/vx_out/&MODEL;">
+
+  <!-- MET Installation -->
+  <!ENTITY MET_HOME          "/scratch4/BMC/dtc/MET/met-5.2_beta3">
+  <!ENTITY MET_EXEC          "&MET_HOME;/bin">
+  <!ENTITY MET_CONFIG        "&WORKFLOW_HOME;/parm/met_config">
+
+  <!-- Observation locations -->
+  <!ENTITY OBS_DIR                  "&VX_DATA_DIR;/vx_data">
+  <!ENTITY GDAS_PNT_OBS_DIR         "/scratch4/NCEPDEV/global/noscrub/stat/prepbufr">
+  <!ENTITY NDAS_PNT_OBS_DIR         "&OBS_DIR;/ndas/valid">
+  <!ENTITY TRK_OBS_DIR              "&OBS_DIR;/best_tracks">
+  <!ENTITY CCPA_OBS_DIR             "&OBS_DIR;/ccpa">
+  <!ENTITY CMORPH_OBS_DIR           "&OBS_DIR;/cmorph">
+  <!ENTITY CMORPH_24H_BUCKET        "&CMORPH_OBS_DIR;/BUCKET_24h">
+  <!ENTITY GFS_ANL_OBS_DIR          "&OBS_DIR;/analyses/gfs_0p25">
+  <!ENTITY CLIMO_FILE_DIR           "/scratch4/NCEPDEV/global/save/Fanglin.Yang/VRFY/vsdb/nwprod/fix">
+
+  <!-- Common job submission variables -->
+  <!ENTITY LOG               "&WORKFLOW_HOME;/log"> <!--CRH, fix me!--> 
+  <!ENTITY PROJECT           "gmtb"> <!--annual-->
+  <!ENTITY SCHED             "moabtorque">
+  <!ENTITY QE                "batch"> 
+  <!ENTITY SERVICE           "service">
+ 
+  <!ENTITY MAX_TRIES         "4">
+
+  <!ENTITY VX_VARS     SYSTEM "vx_env.ent">
+
+  <!-- Load in all tasks to be referenced below -->
+  <!ENTITY % TASKS       SYSTEM "tasks/all.ent">
+
+  %TASKS;
+
+]>
+
+<workflow realtime="F" scheduler="&SCHED;" cyclethrottle="2">
+
+   <cycledef group="00Z">201512020000 201512160000 00:24:00:00</cycledef>
+
+   <log verbosity="100"><cyclestr>&LOG;/refcst_workflow/workflow_&MODEL;_@Y@m@d@H.log</cyclestr></log>
+
+   <!-- Each task is individually defined in a tasks/.ent file -->
+
+
+   &gfs_fcst_in_task; 
+
+<!-- Verification/graphics for non-accumulated fields -->
+   <metatask name="verification_refcst" mode="parallel">
+     <var name="fcst">000 006 012 018 024 030 036 042 048 054 060 066 072 078 084 090 096 102 108 114 120 126 132 138 144 150 156 162 168 174 180 186 192 198 204 210 216 222 228 234 240</var>
+       &vx_in_task;
+       &met_grid_anl;
+       &graphics;
+       &sub_grid_task;
+       &met_point_sfc;
+
+   </metatask>
+
+<!-- Verification/graphics for non-accumulated fields (00/12 valid) -->
+   <metatask name="verification_refcst_12hr">
+     <var name="fcst">000 012 024 036 048 060 072 084 096 108 120 132 144 156 168 180 192 204 216 228 240</var>
+       &met_point_ua;
+   </metatask>
+
+<!-- Verification for accumulated fields -->
+   <metatask name="24_acc_refcst" mode="parallel">
+     <var name="fcst">036 060 084 108 132 156 180 204 228</var>
+     <var name="prev_fcst">012 036 060 084 108 132 156 180 204</var>
+         &met_qpf_24hr;
+         &met_qpf_global_24hr;
+   </metatask> 
+     
+   <metatask name="6_acc_refcst">
+     <var name="fcst">006 012 018 024 030 036 042 048 054 060 066 072 078 084 090 096 102 108 114 120 126 132 138 144 150 156 162 168 174 180 186 192 198 204 210 216 222 228 234 240</var>
+     <var name="valid">06 12 18 00 06 12 18 00 06 12 18 00 06 12 18 00 06 12 18 00 06 12 18 00 06 12 18 00 06 12 18 00 06 12 18 00 06 12 18 00</var>
+         &met_qpf_6hr; 
+   </metatask> 
+
+<!-- Copy VX/graphics to holding area -->
+   &cp_vx_task;
+
+<!-- Archive task -->
+   &archive_task;
+<!-- Scrub task has taskdep to run on completion of archive.
+     Very simple "rm" command.       -->
+   &scrub_task;
+
+
+</workflow>

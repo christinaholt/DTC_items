@@ -1,0 +1,89 @@
+      <task name="met_qpf_global_24h_&MODEL;_#fcst#" maxtries="&MAX_TRIES;" cycledefs="00Z">
+
+        <command>&GMTB_SCRIPTS;/met_qpf_verf_all.ksh</command>
+
+        <account>&PROJECT;</account>
+        <queue>&QE;</queue>
+        <cores>1</cores>
+        <walltime>00:30:00</walltime>
+        <jobname><cyclestr>met_qpf_global_24h_&MODEL;_@Y@m@d@H_#fcst#</cyclestr></jobname>
+        <join><cyclestr>&LOG;/met/met_qpf_global_24h_&MODEL;_@Y@m@d@H_#fcst#.log</cyclestr></join>
+
+        &VX_VARS;
+
+        <envar>
+          <name>UTIL_EXEC</name>
+          <value>&UTIL_EXEC;</value>
+        </envar>
+        <envar>
+          <name>ACCUM_TIME</name>
+          <value>24</value>
+        </envar>
+        <envar>
+          <name>BUCKET_TIME</name>
+          <value>6</value>
+        </envar>
+        <envar>
+          <name>MODEL_BUCKET</name>
+          <value>6</value>
+        </envar>
+        <envar>
+          <name>OBS_BUCKET</name>
+          <value>1</value>
+        </envar>
+        <envar>
+          <name>GRID_VX_LIST</name>
+          <value>G3</value>
+        </envar>
+        <envar>
+          <name>RAW_OBS</name>
+          <value>&CMORPH_OBS_DIR;</value>
+        </envar>
+        <envar>
+          <name>CMORPH_24H_BUCKET</name>
+          <value>&CMORPH_24H_BUCKET;</value>
+        </envar>
+        <envar>
+          <name>OBTYPE</name>
+          <value>cmorph</value>
+        </envar>
+
+        <dependency>
+	  <or>
+            <and>
+              <datadep age="60">&ROTDIR;/<cyclestr>@Y@m@d@H/pgrbq#fcst#.gfs.@Y@m@d@H.grib2</cyclestr></datadep>
+              <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#prev_fcst#:00:00">@Y@m@d/CMORPH_8KM-30MIN_@Y@m@d13.nc</cyclestr></datadep>
+              <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#prev_fcst#:00:00">@Y@m@d/CMORPH_8KM-30MIN_@Y@m@d14.nc</cyclestr></datadep>
+              <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#prev_fcst#:00:00">@Y@m@d/CMORPH_8KM-30MIN_@Y@m@d15.nc</cyclestr></datadep>
+              <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#prev_fcst#:00:00">@Y@m@d/CMORPH_8KM-30MIN_@Y@m@d16.nc</cyclestr></datadep>
+              <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#prev_fcst#:00:00">@Y@m@d/CMORPH_8KM-30MIN_@Y@m@d17.nc</cyclestr></datadep>
+              <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#prev_fcst#:00:00">@Y@m@d/CMORPH_8KM-30MIN_@Y@m@d18.nc</cyclestr></datadep>
+              <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#prev_fcst#:00:00">@Y@m@d/CMORPH_8KM-30MIN_@Y@m@d19.nc</cyclestr></datadep>
+              <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#prev_fcst#:00:00">@Y@m@d/CMORPH_8KM-30MIN_@Y@m@d20.nc</cyclestr></datadep>
+              <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#prev_fcst#:00:00">@Y@m@d/CMORPH_8KM-30MIN_@Y@m@d21.nc</cyclestr></datadep>
+              <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#prev_fcst#:00:00">@Y@m@d/CMORPH_8KM-30MIN_@Y@m@d22.nc</cyclestr></datadep>
+              <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#prev_fcst#:00:00">@Y@m@d/CMORPH_8KM-30MIN_@Y@m@d23.nc</cyclestr></datadep>
+              <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/CMORPH_8KM-30MIN_@Y@m@d00.nc</cyclestr></datadep>
+              <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/CMORPH_8KM-30MIN_@Y@m@d01.nc</cyclestr></datadep>
+              <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/CMORPH_8KM-30MIN_@Y@m@d02.nc</cyclestr></datadep>
+              <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/CMORPH_8KM-30MIN_@Y@m@d03.nc</cyclestr></datadep>
+              <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/CMORPH_8KM-30MIN_@Y@m@d04.nc</cyclestr></datadep>
+              <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/CMORPH_8KM-30MIN_@Y@m@d05.nc</cyclestr></datadep>
+              <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/CMORPH_8KM-30MIN_@Y@m@d06.nc</cyclestr></datadep>
+              <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/CMORPH_8KM-30MIN_@Y@m@d07.nc</cyclestr></datadep>
+              <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/CMORPH_8KM-30MIN_@Y@m@d08.nc</cyclestr></datadep>
+              <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/CMORPH_8KM-30MIN_@Y@m@d09.nc</cyclestr></datadep>
+              <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/CMORPH_8KM-30MIN_@Y@m@d10.nc</cyclestr></datadep>
+              <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/CMORPH_8KM-30MIN_@Y@m@d11.nc</cyclestr></datadep>
+              <datadep age="60">&CMORPH_OBS_DIR;/<cyclestr offset="#fcst#:00:00">@Y@m@d/CMORPH_8KM-30MIN_@Y@m@d12.nc</cyclestr></datadep>
+              <sh>grep 'run_met_qpf_global_24h=YES' <cyclestr>&SWITCH_FILE;</cyclestr></sh>
+            </and>
+	    <and>
+              <datadep age="60">&ROTDIR;/<cyclestr>@Y@m@d@H/pgrbq#fcst#.gfs.@Y@m@d@H.grib2</cyclestr></datadep>
+              <datadep age="60">&CMORPH_24H_BUCKET;/<cyclestr offset="#fcst#:00:00">@Y@m@d/CMORPH_@Y@m@d_@H0000_24h.nc</cyclestr></datadep>
+              <sh>grep 'run_met_qpf_global_24h=YES' <cyclestr>&SWITCH_FILE;</cyclestr></sh>
+	    </and>
+	  </or>
+        </dependency>
+
+     </task> 

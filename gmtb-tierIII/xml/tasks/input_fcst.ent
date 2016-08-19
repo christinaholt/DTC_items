@@ -1,0 +1,22 @@
+<task name="input_fcst" maxtries="&MAX_TRIES;" cycledefs="00Z">
+   <command> &HOMEhwrf;/ush/hwrf_pull_inputs.py -v -w &WORKFLOW_HOME;/chgres/input -o &WORKFLOW_HOME;/chgres/input &HOMEhwrf;/ush/gfs_fcst_input.pull <cyclestr>@Y@m@d@H</cyclestr></command>
+
+   <account>&PROJECT;</account>
+   <queue>&SERVICE;</queue>
+   <cores>1</cores>
+   <walltime>01:30:00</walltime>
+   <memory>"2G"</memory>
+   <jobname><cyclestr>input_fcst_@Y@m@d@H</cyclestr></jobname>
+   <join><cyclestr>&LOG;/input_fcst/input_fcst_@Y@m@d@H.log</cyclestr></join>
+
+   <envar>
+     <name>TOTAL_TASKS</name>
+     <value>1</value>
+   </envar>
+
+   <envar>
+     <name>HOMEhwrf</name> 
+     <value>&HOMEhwrf;</value>
+   </envar>
+  
+</task> 
