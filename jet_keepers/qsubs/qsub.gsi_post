@@ -1,0 +1,15 @@
+#!/bin/sh
+
+#PBS -A dtc-hurr
+#PBS -l partition=sjet
+#PBS -j oe
+#PBS -q batch # queue
+#PBS -l procs=24
+#PBS -l walltime=02:19:00
+#PBS -N gsi_post
+
+
+cd $PBS_O_WORKDIR
+
+
+./gsi_d02_wrapper

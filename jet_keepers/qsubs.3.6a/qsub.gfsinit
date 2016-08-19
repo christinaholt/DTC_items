@@ -1,0 +1,15 @@
+#!/usr/bin/env ksh
+#PBS -A dtc-hurr
+#PBS -l partition=ujet:tjet:sjet:vjet:njet
+#PBS -j oe
+#PBS -q batch # queue
+#PBS -l procs=32
+#PBS -l walltime=04:39:00
+#PBS -l vmem=40GB
+#PBS -N gfsinit
+
+
+cd $PBS_O_WORKDIR
+
+
+./init_gfs_wrapper

@@ -1,0 +1,15 @@
+#!/usr/bin/env ksh
+
+
+#PBS -A dtc-hurr
+#PBS -l partition=ujet:tjet:sjet:vjet:njet
+#PBS -j oe
+#PBS -q batch # queue
+#PBS -l procs=1 
+#PBS -l walltime=03:10:00
+#PBS -l vmem=20GB
+#PBS -N products
+cd $PBS_O_WORKDIR
+
+
+./products_wrapper

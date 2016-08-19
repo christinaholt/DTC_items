@@ -1,0 +1,54 @@
+#!/bin/bash
+#
+# Create a RC tag from a branch
+#
+hwrf=https://svn-dtc-hwrf.cgd.ucar.edu
+
+repos=( \
+	https://svn-dtc-hwrf-utilities.cgd.ucar.edu     \
+	https://svn-dtc-ncep-coupler.cgd.ucar.edu       \
+	https://svn-dtc-pomtc.cgd.ucar.edu              \
+	https://svn-dtc-unifiedpostproc.cgd.ucar.edu    \
+	https://svn-wrf-wps.cgd.ucar.edu                \
+	https://svn-wrf-model.cgd.ucar.edu              \
+	https://svn-dtc-gfdl-vortextracker.cgd.ucar.edu \
+	https://gsi.fsl.noaa.gov/svn/comgsi             \
+)
+#	https://gsi.fsl.noaa.gov/svn/comgsi             \
+
+if [ $# -ne 2 ] ; then
+	echo "usage: $0 branch tag"
+	exit 1
+fi
+
+branch=$1
+tag=$2
+
+mfile=$(mktemp)
+echo "
+
+** TAG CREATION **
+
+Creating $tag from $branch.
+" > $mfile
+
+for r in ${repos[@]} ; do
+	svn --non-interactive -F $mfile copy $r/branches/$branch $r/tags/$tag
+done
+svn --non-interactive -F $mfile copy $hwrf/trunk $r/tags/$tag
+
+rm $mfile
+
+odir=$(pwd)
+tdir=$(mktemp -d)
+cd $tdir
+#svn co --ignore-externals ${repos[0]}/tags/$tag/sorc
+svn co --ignore-externals ${hwrf}/tags/$tag/sorc
+cd sorc
+sed -i 's/branches/tags/' .externals
+sed -i 's/'$branch'/'$tag'/'  .externals
+svn propset svn:externals -F .externals .
+svn ci . -m "Updating externals to use their tags."
+
+cd $odir
+rm -rf $tdir

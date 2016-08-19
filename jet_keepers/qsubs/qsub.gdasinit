@@ -1,0 +1,16 @@
+#!/bin/sh
+#PBS -A dtc-hurr
+#PBS -l partition=ujet:tjet:sjet:vjet:njet
+#PBS -j oe
+#PBS -q batch # queue
+#PBS -l procs=48
+#PBS -l walltime=04:39:00
+#PBS -l vmem=40GB
+#PBS -N gdas_init
+
+
+
+cd $PBS_O_WORKDIR
+
+
+./init_gdas_wrapper

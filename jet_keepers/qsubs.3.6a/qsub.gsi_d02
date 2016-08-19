@@ -1,0 +1,15 @@
+#!/usr/bin/env ksh
+
+#PBS -A dtc-hurr
+#PBS -l partition=sjet
+#PBS -j oe
+#PBS -q batch # queue
+#PBS -l nodes=4:ppn=9+1:ppn=4
+#PBS -l walltime=00:39:00
+#PBS -l vmem=40GB
+#PBS -N gsi_d02
+export PBS_NP=`cat $PBS_NODEFILE | wc -l`
+cd $PBS_O_WORKDIR
+
+
+./gsi_d02_wrapper

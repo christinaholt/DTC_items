@@ -1,0 +1,15 @@
+#!/bin/sh
+
+
+#PBS -A dtc-hurr
+#PBS -l partition=ujet:tjet:sjet:vjet:njet
+#PBS -j oe
+#PBS -q batch # queue
+#PBS -l procs=24 
+#PBS -l walltime=05:59:00
+#PBS -l vmem=40GB
+#PBS -N post
+cd $PBS_O_WORKDIR
+
+
+./post_wrapper

@@ -1,0 +1,17 @@
+#!/bin/sh
+
+
+#PBS -A dtc-hurr
+#PBS -l partition=ujet:tjet:sjet:vjet:njet
+#PBS -j oe
+#PBS -q batch # queue
+#PBS -l procs=210
+#PBS -l walltime=03:40:00
+#PBS -l vmem=20GB
+#PBS -N forecast
+cd $PBS_O_WORKDIR
+
+module list
+
+execdir=/pan2/projects/dtc-hurr/Christina.Holt/CC_blphys/HWRF/exec
+mpiexec -np 1 $execdir/hwrf_wm3c : -np 9 $execdir/hwrf_ocean_fcst : -np 200 $execdir/hwrf_wrf

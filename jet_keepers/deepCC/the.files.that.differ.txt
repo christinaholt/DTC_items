@@ -1,0 +1,3 @@
+nonsatpost-f12h00m-moad.egrb
+nonsatpost-f12h00m-storm1outer.egrb
+nonsatpost-f12h00m-storm1inner.egrb

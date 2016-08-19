@@ -1,0 +1,43 @@
+### CHRON WARNING:  
+### CHRON WARNING:  Dear user, 
+### CHRON WARNING:  
+### CHRON WARNING:  If you are seeing this message something is wrong.
+### CHRON WARNING:  Please report this problem to rdhpcs.jet.help@noaa.gov.
+### CHRON WARNING:  
+### CHRON WARNING:  The command 'crontab' must be replaced by a system
+### CHRON WARNING:  wrapper script!  The purpose of the wapper script is to
+### CHRON WARNING:  enable a fault-tolerant and scalable cron system that
+### CHRON WARNING:  provides a single interface to all users.
+### CHRON WARNING:  
+SHELL=/home/admin/chron/bin/chron_sh
+MAILTO=Christina.Holt@noaa.gov
+#rr=/apps/rocoto/1.1.1-p1/bin/rocotorun
+#rr=/home/dtc/rocoto/bin/rocotorun
+rr=/lfs1/projects/hwrf-vd/rocoto/bin/rocotorun
+pan2=/pan2/projects/dtc-hurr/Christina.Holt
+#*/3 * * * * /lfs3/projects/rtwbl/Christina.Holt/RAP_code/xml/run_rap_retro_nobdy.ksh
+#*/3 * * * * /lfs3/projects/rtwbl/Christina.Holt/rapretro/hires_GFS_ens/xml/run_rap_retro_nobdy.ksh
+#*/3 * * * * /lfs3/projects/rtwbl/Christina.Holt/rapretro/hires_GFS_ens_GRE1/xml/run_rap_retro_nobdy.ksh
+#*/3 * * * * /lfs3/projects/rtwbl/Christina.Holt/rapretro/RAPens_GRE1/xml/run_rap_retro_nobdy.ksh
+#*/3 * * * * /lfs3/projects/rtwbl/Christina.Holt/RAP_code/xml/run_rap_retro_bdy.ksh
+#*/3 * * * * /pan2/projects/dtc-hurr/Christina.Holt/UPP_test_20160531/rocoto/runhwrf_wrapper -f
+#*/5 * * * * /pan2/projects/dtc-hurr/Christina.Holt/MergeH216/rocoto/runhwrf_wrapper -f
+#*/5 * * * * /pan2/projects/dtc-hurr/Christina.Holt/MergeH216/rocoto/runhwrf_wrapper.ms -f
+*/5 * * * * /pan2/projects/dtc-hurr/Christina.Holt/hwrf_multistorm/rocoto/runhwrf_wrapper -f
+#*/3 * * * * /pan2/projects/dtc-hurr/Christina.Holt/HWRF_trunk_20160624/rocoto/runhwrf_wrapper -f
+#*/3 * * * * /pan2/projects/dtc-hurr/Christina.Holt/hwrf_physbaseline/rocoto/runhwrf_wrapper.formmet -f
+#*/3 * * * * /pan2/projects/dtc-hurr/Christina.Holt/hwrf_physbaseline/rocoto/runhwrf_wrapper.coldJoe -f
+#*/3 * * * * /pan2/projects/dtc-hurr/Christina.Holt/hwrf_physbaseline/rocoto/runhwrf_wrapper.forJoe -f
+#*/3 * * * * /pan2/projects/dtc-hurr/Christina.Holt/hwrf_physbaseline/rocoto/runhwrf_wrapper.odile -f
+#*/3 * * * * /pan2/projects/dtc-hurr/Christina.Holt/hwrf_physbaseline/rocoto/runhwrf_wrapper.gonzalo -f
+#*/3 * * * * /pan2/projects/dtc-hurr/Christina.Holt/hwrf_physbaseline/rocoto/runhwrf_wrapper.raymond -f
+#*/3 * * * * /pan2/projects/dtc-hurr/Christina.Holt/hwrf_physbaseline/rocoto/runhwrf_wrapper.sandy -f
+#*/3 * * * * /pan2/projects/dtc-hurr/Christina.Holt/hwrf_physbaseline/rocoto/runhwrf_wrapper.edouard -f
+#*/3 * * * * /pan2/projects/dtc-hurr/Christina.Holt/hwrf_physbaseline/rocoto/runhwrf_wrapper.joaquin -f
+#*/3 * * * * /pan2/projects/dtc-hurr/Christina.Holt/hwrf_physbaseline/rocoto/runhwrf_wrapper.odile -f
+#* */12 * * * qsub -vexpt=HDRF,disk=pan2 /pan2/projects/dtc-hurr/Christina.Holt/TNE_RRTMG_PCl/MET_anl/scripts/prepare_grib.ksh
+#* */12 * * * qsub -vexpt=HDGF,disk=pan2 /pan2/projects/dtc-hurr/Christina.Holt/TNE_RRTMG_PCl/MET_anl/scripts/prepare_grib.ksh
+#* */12 * * * qsub -vexpt=HDRF,disk=lfs2 /pan2/projects/dtc-hurr/Christina.Holt/TNE_RRTMG_PCl/MET_anl/scripts/prepare_grib.ksh
+#* */12 * * * qsub -vexpt=HDGF,disk=lfs2 /pan2/projects/dtc-hurr/Christina.Holt/TNE_RRTMG_PCl/MET_anl/scripts/prepare_grib.ksh
+
+0 2 * * * crontab -l > ~/crontab_backup.txt

@@ -1,0 +1,83 @@
+#!/bin/ksh93
+#
+# Script to create a HWRF tag from a branch.
+#
+
+args=$( getopt "t" "$@" )
+tne=0
+for optarg in ${args[@]}; do
+	case "$optarg" in
+		-t) tne=1 ; shift 1;
+	esac
+done
+
+if [ $# -lt 2 ]; then
+	echo "Need a branch and tag string"
+	echo "usage: $0 HWRF_v3.4a RC2"
+	exit 1
+fi
+
+wd=$( pwd )
+B=$1
+T=$2
+message=$3
+
+cat > mfile <<EOF
+** TAG CREATION **
+
+Creating $T from $B $message.
+EOF
+
+# List of all the sources
+srcs=( https://svn-dtc-hwrf.cgd.ucar.edu/branches               \
+       https://svn-dtc-gfdl-vortextracker.cgd.ucar.edu/branches \
+       https://svn-dtc-hwrf-utilities.cgd.ucar.edu/branches     \
+       https://svn-dtc-ncep-coupler.cgd.ucar.edu/branches       \
+       https://svn-dtc-pomtc.cgd.ucar.edu/branches              \
+       https://svn-dtc-unifiedpostproc.cgd.ucar.edu/branches    \
+       https://svn-wrf-wps.cgd.ucar.edu/branches                \
+       https://svn-wrf-model.cgd.ucar.edu/branches              \
+       https://gsi.fsl.noaa.gov/svn/comgsi/branches             \
+     )
+
+
+# copy over the sources
+for s in ${srcs[@]}; do
+	svn copy -F mfile ${s}/${B} ${s%%branches}tags/${T}
+done
+
+# copy over the TnE
+if [ $tne -eq 1 ]; then
+	svn copy -F mfile https://svn-dtc-hwrf-tne.cgd.ucar.edu/trunk \
+                  https://svn-dtc-hwrf-tne.cgd.ucar.edu/tags/${T}
+fi
+
+rm mfile
+
+# check out the toplevel to update the externals
+svn co --ignore-externals ${srcs[0]%%branches}tags/${T}/sorc ${T}_sorc
+
+cd ${T}_sorc
+
+cat > .externals <<EOF
+gfdl-vortextracker   https://svn-dtc-gfdl-vortextracker.cgd.ucar.edu/tags/${T}
+hwrf-utilities       https://svn-dtc-hwrf-utilities.cgd.ucar.edu/tags/${T}
+ncep-coupler         https://svn-dtc-ncep-coupler.cgd.ucar.edu/tags/${T}
+pomtc                https://svn-dtc-pomtc.cgd.ucar.edu/tags/${T}
+UPP                  https://svn-dtc-unifiedpostproc.cgd.ucar.edu/tags/${T}
+WPSV3                https://svn-wrf-wps.cgd.ucar.edu/tags/${T}
+WRFV3                https://svn-wrf-model.cgd.ucar.edu/tags/${T}
+GSI                  https://gsi.fsl.noaa.gov/svn/comgsi/tags/${T}
+tne                  https://svn-dtc-hwrf-tne.cgd.ucar.edu/tags/${T}
+EOF
+svn propset svn:externals -F .externals .
+
+cat > tfile <<EOF
+**TAG COMMIT **
+
+Updating the externals for tag ${T} to use the tags of the components.
+EOF
+svn -F tfile ci .
+
+cd $wd
+#rm -rf ${T}_sorc

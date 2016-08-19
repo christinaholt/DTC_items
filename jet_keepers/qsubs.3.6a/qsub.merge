@@ -1,0 +1,14 @@
+#!/usr/bin/env ksh
+
+
+#PBS -A dtc-hurr
+#PBS -l partition=sjet
+#PBS -j oe
+#PBS -q batch # queue
+#PBS -l procs=1 
+#PBS -l walltime=00:39:00
+#PBS -l vmem=20GB
+#PBS -N merge
+cd $PBS_O_WORKDIR
+
+./merge_wrapper

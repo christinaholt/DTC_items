@@ -1,0 +1,14 @@
+#!/usr/bin/env ksh
+
+
+#PBS -A dtc-hurr
+#PBS -l partition=sjet
+#PBS -j oe
+#PBS -q batch # queue
+#PBS -l procs=210
+#PBS -l walltime=03:40:00
+#PBS -l vmem=20GB
+#PBS -N forecast
+cd $PBS_O_WORKDIR
+
+./forecast_wrapper

@@ -1,0 +1,17 @@
+#!/bin/sh
+
+#PBS -A dtc-hurr
+#PBS -l partition=sjet
+#PBS -j oe
+#PBS -q batch # queue
+#PBS -l nodes=15:ppn=6
+#PBS -l walltime=01:59:00
+##PBS -l vmem=40GB
+#PBS -N gsi_d03
+
+
+export PBS_NP=`cat $PBS_NODEFILE | wc -l`
+
+cd $PBS_O_WORKDIR
+
+./gsi_d03_wrapper

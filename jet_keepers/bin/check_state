@@ -1,0 +1,67 @@
+#!/usr/bin/env ksh
+######################################################################
+#                       launcher wrapper script                          
+######################################################################
+######################################################################
+#                                                                    #
+#   Author: DTC October 2014					     #
+######################################################################
+
+######################################################################
+#   Definitions
+######################################################################
+#---------------------------------------------------------------------
+#   Global definitions of environment variables
+#---------------------------------------------------------------------
+
+
+export PATH=/lfs3/projects/hwrfv3/Samuel.Trahan/rocoto/bin:$PATH
+if [ -z "$PYTHONPATH" ] ; then
+	export PYTHONPATH=${HOMEhwrf}/ush
+else   
+	export PYTHONPATH=${PYTHONPATH}:${HOMEhwrf}/ush
+fi
+
+set -A Lstorms 06L 03L  12L 18L 04L 09L 
+set -A Lyears 2014 2013 2012 2012 2011 2011 2011 2011
+
+#set -A Lstorms 06L 03L 12L 18L 04L 09L 12L 16L 
+
+#EAST PAC STORMS
+set -A Estorms 13E 15E  17E 18E 04E 05E 07E
+set -A Eyears 2014 2014 2013 2013 2012 2012 2012 2011
+#set -A Lstorms 06L 08L 03L 12L 18L 04L 09L 12L 16L 
+#set -A Lyears 2014 2014 2012 2012 2012 2011 2011 2011 2011
+#
+#set -A Estorms 13E 14E 15E 17E 18E 04E 05E 07E 09E
+#set -A Eyears 2014 2014 2014 2013 2013 2012 2012 2012 2011
+
+######################################################################
+#   Main
+######################################################################
+
+cd ${HOMEhwrf}/rocoto
+
+j=0
+for i in ${Lstorms[@]};
+do
+  echo $i ${Lyears[$j]}
+  STID=$i
+  YYYY=${Lyears[$j]}
+  WORKFLOW=${STID}_$YYYY.xml
+  DATABASE=${STID}_$YYYY.db
+  rocotostat -w $WORKFLOW -d $DATABASE -c : | grep $1
+  let j+=1
+done
+
+j=0
+for i in ${Estorms[@]};
+do
+  echo $i ${Eyears[$j]}
+  STID=$i
+  YYYY=${Eyears[$j]}
+  WORKFLOW=${STID}_$YYYY.xml
+  DATABASE=${STID}_$YYYY.db
+  rocotostat -w $WORKFLOW -d $DATABASE -c : | grep $1
+  let j+=1
+done

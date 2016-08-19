@@ -1,0 +1,16 @@
+#!/bin/sh
+
+#PBS -A dtc-hurr
+#PBS -l partition=ujet:tjet:sjet:vjet:njet
+#PBS -j oe
+#PBS -q batch # queue
+#PBS -l procs=1
+#PBS -l walltime=00:19:00
+#PBS -l vmem=40GB
+#PBS -N bufrprep
+
+
+cd $PBS_O_WORKDIR
+
+
+./bufrprep_wrapper

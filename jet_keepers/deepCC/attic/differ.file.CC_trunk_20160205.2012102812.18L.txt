@@ -1,0 +1,14 @@
+sandy18l.2012102812.hwrfprs.d3.0p02.f000.grb2
+sandy18l.2012102812.hwrfprs.d2.0p06.f000.grb2
+sandy18l.2012102812.hwrfprs.d1.0p20.f000.grb2
+sandy18l.2012102812.hwrfprs.d123.0p25.f000.grb2
+sandy18l.2012102812.hwrfprs.d123.0p06.f000.grb2
+sandy18l.2012102812.hwrfprs.d23.0p02.f000.grb2
+sandy18l.2012102812.hwrfprs.d2.0p06.f063.grb2
+sandy18l.2012102812.hwrfprs.d1.0p20.f063.grb2
+sandy18l.2012102812.hwrfprs.d3.0p02.f063.grb2
+sandy18l.2012102812.hwrfprs.d23.0p02.f063.grb2
+sandy18l.2012102812.hwrfprs.d2.0p06.f126.grb2
+sandy18l.2012102812.hwrfprs.d1.0p20.f126.grb2
+sandy18l.2012102812.hwrfprs.d3.0p02.f126.grb2
+sandy18l.2012102812.hwrfprs.d23.0p02.f126.grb2

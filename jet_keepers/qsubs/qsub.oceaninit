@@ -1,0 +1,13 @@
+#!/bin/sh
+#PBS -A dtc-hurr
+#PBS -l partition=ujet:tjet:sjet:vjet:njet
+#PBS -j oe
+#PBS -q batch # queue
+#PBS -l nodes=9:ppn=1
+#PBS -l walltime=01:39:00
+#PBS -N ocean_init
+cd $PBS_O_WORKDIR
+
+
+./init_ocean_wrapper
+

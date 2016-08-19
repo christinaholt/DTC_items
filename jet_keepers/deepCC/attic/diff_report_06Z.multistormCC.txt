@@ -1,0 +1,1766 @@
+This is an hwrf deep CC diff report.
+Comparing the following directories: Only the *.grb and *.grb2 files.
+dir1: /mnt/pan2/projects/dtc-hurr/James.T.Frimel/pytmp/hwrf_trunk.baseline2.2cyc.defaults/com/2012102806/18L/
+dir2: /mnt/pan2/projects/dtc-hurr/James.T.Frimel/pytmp/a.hwrf_multistorm.ms=no.2cyc.defaults/com/2012102806/18L/
+--------------------------------------------
+
+Processing file 1 sandy18l.2012102806.hwrfprs.d3.0p02.f000.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 2 sandy18l.2012102806.hwrfprs.d2.0p06.f000.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 3 sandy18l.2012102806.hwrfprs.d1.0p20.f000.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 4 sandy18l.2012102806.hwrfprs.d123.0p25.f000.grb2 
+Number of Records in dir output1 53 
+Number of Records in dir output2 53 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 5 sandy18l.2012102806.hwrfprs.d123.0p06.f000.grb2 
+Number of Records in dir output1 58 
+Number of Records in dir output2 58 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 6 sandy18l.2012102806.hwrfprs.d23.0p02.f000.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 7 sandy18l.2012102806.hwrfprs.d2.0p06.f003.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 8 sandy18l.2012102806.hwrfprs.d1.0p20.f003.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 9 sandy18l.2012102806.hwrfprs.d3.0p02.f003.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 10 sandy18l.2012102806.hwrfprs.d23.0p02.f003.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 11 sandy18l.2012102806.hwrfprs.d2.0p06.f006.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 12 sandy18l.2012102806.hwrfprs.d1.0p20.f006.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 13 sandy18l.2012102806.hwrfprs.d3.0p02.f006.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 14 sandy18l.2012102806.hwrfprs.d23.0p02.f006.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 15 sandy18l.2012102806.hwrfprs.d2.0p06.f009.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 16 sandy18l.2012102806.hwrfprs.d1.0p20.f009.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 17 sandy18l.2012102806.hwrfprs.d3.0p02.f009.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 18 sandy18l.2012102806.hwrfprs.d23.0p02.f009.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 19 sandy18l.2012102806.hwrfprs.d2.0p06.f012.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 20 sandy18l.2012102806.hwrfprs.d1.0p20.f012.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 21 sandy18l.2012102806.hwrfprs.d3.0p02.f012.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 22 sandy18l.2012102806.hwrfprs.d2.0p06.f015.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 23 sandy18l.2012102806.hwrfprs.d1.0p20.f015.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 24 sandy18l.2012102806.hwrfprs.d3.0p02.f015.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 25 sandy18l.2012102806.hwrfprs.d23.0p02.f012.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 26 sandy18l.2012102806.hwrfprs.d2.0p06.f018.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 27 sandy18l.2012102806.hwrfprs.d1.0p20.f018.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 28 sandy18l.2012102806.hwrfprs.d3.0p02.f018.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 29 sandy18l.2012102806.hwrfprs.d23.0p02.f015.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 30 sandy18l.2012102806.hwrfprs.d2.0p06.f021.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 31 sandy18l.2012102806.hwrfprs.d3.0p02.f021.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 32 sandy18l.2012102806.hwrfprs.d1.0p20.f021.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 33 sandy18l.2012102806.hwrfprs.d2.0p06.f024.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 34 sandy18l.2012102806.hwrfprs.d23.0p02.f018.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 35 sandy18l.2012102806.hwrfprs.d1.0p20.f024.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 36 sandy18l.2012102806.hwrfprs.d3.0p02.f024.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 37 sandy18l.2012102806.hwrfprs.d23.0p02.f021.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 38 sandy18l.2012102806.hwrfprs.d2.0p06.f027.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 39 sandy18l.2012102806.hwrfprs.d1.0p20.f027.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 40 sandy18l.2012102806.hwrfprs.d3.0p02.f027.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 41 sandy18l.2012102806.hwrfprs.d23.0p02.f024.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 42 sandy18l.2012102806.hwrfprs.d2.0p06.f030.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 43 sandy18l.2012102806.hwrfprs.d1.0p20.f030.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 44 sandy18l.2012102806.hwrfprs.d3.0p02.f030.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 45 sandy18l.2012102806.hwrfprs.d23.0p02.f027.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 46 sandy18l.2012102806.hwrfprs.d2.0p06.f033.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 47 sandy18l.2012102806.hwrfprs.d1.0p20.f033.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 48 sandy18l.2012102806.hwrfprs.d3.0p02.f033.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 49 sandy18l.2012102806.hwrfprs.d23.0p02.f030.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 50 sandy18l.2012102806.hwrfprs.d2.0p06.f036.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 51 sandy18l.2012102806.hwrfprs.d1.0p20.f036.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 52 sandy18l.2012102806.hwrfprs.d3.0p02.f036.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 53 sandy18l.2012102806.hwrfprs.d23.0p02.f033.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 54 sandy18l.2012102806.hwrfprs.d2.0p06.f039.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 55 sandy18l.2012102806.hwrfprs.d1.0p20.f039.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 56 sandy18l.2012102806.hwrfprs.d3.0p02.f039.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 57 sandy18l.2012102806.hwrfprs.d23.0p02.f036.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 58 sandy18l.2012102806.hwrfprs.d2.0p06.f042.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 59 sandy18l.2012102806.hwrfprs.d1.0p20.f042.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 60 sandy18l.2012102806.hwrfprs.d3.0p02.f042.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 61 sandy18l.2012102806.hwrfprs.d23.0p02.f039.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 62 sandy18l.2012102806.hwrfprs.d2.0p06.f045.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 63 sandy18l.2012102806.hwrfprs.d1.0p20.f045.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 64 sandy18l.2012102806.hwrfprs.d3.0p02.f045.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 65 sandy18l.2012102806.hwrfprs.d23.0p02.f042.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 66 sandy18l.2012102806.hwrfprs.d2.0p06.f048.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 67 sandy18l.2012102806.hwrfprs.d3.0p02.f048.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 68 sandy18l.2012102806.hwrfprs.d1.0p20.f048.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 69 sandy18l.2012102806.hwrfprs.d23.0p02.f045.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 70 sandy18l.2012102806.hwrfprs.d2.0p06.f051.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 71 sandy18l.2012102806.hwrfprs.d1.0p20.f051.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 72 sandy18l.2012102806.hwrfprs.d3.0p02.f051.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 73 sandy18l.2012102806.hwrfprs.d23.0p02.f048.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 74 sandy18l.2012102806.hwrfprs.d2.0p06.f054.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 75 sandy18l.2012102806.hwrfprs.d1.0p20.f054.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 76 sandy18l.2012102806.hwrfprs.d3.0p02.f054.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 77 sandy18l.2012102806.hwrfprs.d23.0p02.f051.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 78 sandy18l.2012102806.hwrfprs.d2.0p06.f057.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 79 sandy18l.2012102806.hwrfprs.d1.0p20.f057.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 80 sandy18l.2012102806.hwrfprs.d3.0p02.f057.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 81 sandy18l.2012102806.hwrfprs.d23.0p02.f054.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 82 sandy18l.2012102806.hwrfprs.d23.0p02.f057.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 83 sandy18l.2012102806.hwrfprs.d2.0p06.f060.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 84 sandy18l.2012102806.hwrfprs.d1.0p20.f060.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 85 sandy18l.2012102806.hwrfprs.d3.0p02.f060.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 86 sandy18l.2012102806.hwrfprs.d2.0p06.f063.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 87 sandy18l.2012102806.hwrfprs.d1.0p20.f063.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 88 sandy18l.2012102806.hwrfprs.d3.0p02.f063.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 89 sandy18l.2012102806.hwrfprs.d23.0p02.f060.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 90 sandy18l.2012102806.hwrfprs.d2.0p06.f066.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 91 sandy18l.2012102806.hwrfprs.d1.0p20.f066.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 92 sandy18l.2012102806.hwrfprs.d3.0p02.f066.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 93 sandy18l.2012102806.hwrfprs.d23.0p02.f063.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 94 sandy18l.2012102806.hwrfprs.d2.0p06.f069.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 95 sandy18l.2012102806.hwrfprs.d1.0p20.f069.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 96 sandy18l.2012102806.hwrfprs.d3.0p02.f069.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 97 sandy18l.2012102806.hwrfprs.d23.0p02.f066.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 98 sandy18l.2012102806.hwrfprs.d2.0p06.f072.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 99 sandy18l.2012102806.hwrfprs.d3.0p02.f072.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 100 sandy18l.2012102806.hwrfprs.d1.0p20.f072.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 101 sandy18l.2012102806.hwrfprs.d2.0p06.f075.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 102 sandy18l.2012102806.hwrfprs.d23.0p02.f069.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 103 sandy18l.2012102806.hwrfprs.d1.0p20.f075.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 104 sandy18l.2012102806.hwrfprs.d3.0p02.f075.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 105 sandy18l.2012102806.hwrfprs.d23.0p02.f072.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 106 sandy18l.2012102806.hwrfprs.d2.0p06.f078.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 107 sandy18l.2012102806.hwrfprs.d3.0p02.f078.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 108 sandy18l.2012102806.hwrfprs.d1.0p20.f078.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 109 sandy18l.2012102806.hwrfprs.d23.0p02.f075.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 110 sandy18l.2012102806.hwrfprs.d2.0p06.f081.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 111 sandy18l.2012102806.hwrfprs.d1.0p20.f081.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 112 sandy18l.2012102806.hwrfprs.d3.0p02.f081.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 113 sandy18l.2012102806.hwrfprs.d23.0p02.f078.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 114 sandy18l.2012102806.hwrfprs.d2.0p06.f084.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 115 sandy18l.2012102806.hwrfprs.d1.0p20.f084.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 116 sandy18l.2012102806.hwrfprs.d3.0p02.f084.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 117 sandy18l.2012102806.hwrfprs.d23.0p02.f081.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 118 sandy18l.2012102806.hwrfprs.d2.0p06.f087.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 119 sandy18l.2012102806.hwrfprs.d1.0p20.f087.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 120 sandy18l.2012102806.hwrfprs.d3.0p02.f087.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 121 sandy18l.2012102806.hwrfprs.d23.0p02.f084.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 122 sandy18l.2012102806.hwrfprs.d3.0p02.f090.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 123 sandy18l.2012102806.hwrfprs.d2.0p06.f090.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 124 sandy18l.2012102806.hwrfprs.d1.0p20.f090.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 125 sandy18l.2012102806.hwrfprs.d23.0p02.f087.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 126 sandy18l.2012102806.hwrfprs.d2.0p06.f093.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 127 sandy18l.2012102806.hwrfprs.d1.0p20.f093.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 128 sandy18l.2012102806.hwrfprs.d3.0p02.f093.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 129 sandy18l.2012102806.hwrfprs.d23.0p02.f090.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 130 sandy18l.2012102806.hwrfprs.d2.0p06.f096.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 131 sandy18l.2012102806.hwrfprs.d1.0p20.f096.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 132 sandy18l.2012102806.hwrfprs.d3.0p02.f096.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 133 sandy18l.2012102806.hwrfprs.d2.0p06.f099.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 134 sandy18l.2012102806.hwrfprs.d23.0p02.f093.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 135 sandy18l.2012102806.hwrfprs.d3.0p02.f099.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 136 sandy18l.2012102806.hwrfprs.d1.0p20.f099.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 137 sandy18l.2012102806.hwrfprs.d23.0p02.f096.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 138 sandy18l.2012102806.hwrfprs.d2.0p06.f102.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 139 sandy18l.2012102806.hwrfprs.d1.0p20.f102.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 140 sandy18l.2012102806.hwrfprs.d3.0p02.f102.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 141 sandy18l.2012102806.hwrfprs.d23.0p02.f099.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 142 sandy18l.2012102806.hwrfprs.d23.0p02.f102.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 143 sandy18l.2012102806.hwrfprs.d2.0p06.f105.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 144 sandy18l.2012102806.hwrfprs.d1.0p20.f105.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 145 sandy18l.2012102806.hwrfprs.d2.0p06.f108.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 146 sandy18l.2012102806.hwrfprs.d1.0p20.f108.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 147 sandy18l.2012102806.hwrfprs.d3.0p02.f108.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 148 sandy18l.2012102806.hwrfprs.d3.0p02.f105.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 149 sandy18l.2012102806.hwrfprs.d23.0p02.f105.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 150 sandy18l.2012102806.hwrfprs.d2.0p06.f111.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 151 sandy18l.2012102806.hwrfprs.d23.0p02.f108.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 152 sandy18l.2012102806.hwrfprs.d1.0p20.f111.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 153 sandy18l.2012102806.hwrfprs.d3.0p02.f111.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 154 sandy18l.2012102806.hwrfprs.d3.0p02.f114.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 155 sandy18l.2012102806.hwrfprs.d2.0p06.f114.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 156 sandy18l.2012102806.hwrfprs.d1.0p20.f114.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 157 sandy18l.2012102806.hwrfprs.d2.0p06.f117.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 158 sandy18l.2012102806.hwrfprs.d1.0p20.f117.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 159 sandy18l.2012102806.hwrfprs.d3.0p02.f117.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 160 sandy18l.2012102806.hwrfprs.d23.0p02.f111.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 161 sandy18l.2012102806.hwrfprs.d2.0p06.f120.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 162 sandy18l.2012102806.hwrfprs.d23.0p02.f114.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 163 sandy18l.2012102806.hwrfprs.d1.0p20.f120.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 164 sandy18l.2012102806.hwrfprs.d3.0p02.f120.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 165 sandy18l.2012102806.hwrfprs.d23.0p02.f117.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 166 sandy18l.2012102806.hwrfprs.d2.0p06.f123.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 167 sandy18l.2012102806.hwrfprs.d1.0p20.f123.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 168 sandy18l.2012102806.hwrfprs.d3.0p02.f123.grb2 
+Number of Records in dir output1 744
+Number of Records in dir output2 744
+I'm done with wgrib ouput ... lets diff
+Standard Out:
+
+Standard Error:
+
+I'm done with diff....
+======================================================================
+Processing file 169 sandy18l.2012102806.hwrfprs.d23.0p02.f120.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 170 sandy18l.2012102806.hwrfprs.d2.0p06.f126.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 171 sandy18l.2012102806.hwrfprs.d3.0p02.f126.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 172 sandy18l.2012102806.hwrfprs.d1.0p20.f126.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 173 sandy18l.2012102806.hwrfprs.d23.0p02.f123.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 174 sandy18l.2012102806.hwrfprs.d23.0p02.f126.grb2 
+Number of Records in dir output1 744 
+Number of Records in dir output2 744 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+
+I'm done with diff....
+======================================================================
+Processing file 175 sandy18l.2012102806.hwrftrk.f033.grb 
+WARNING: Output 1, Duplicate record in the grib file.
+7,HGTkpds5=7kpds6=100kpds7=850TR=0P1=33P2=0TimeU=1850.mb33hr.fcstNAve=0
+WARNING: Output 1, Duplicate record in the grib file.
+8,HGTkpds5=7kpds6=100kpds7=700TR=0P1=33P2=0TimeU=1700.mb33hr.fcstNAve=0
+WARNING: Output 2, Duplicate record in the grib file.
+5,HGTkpds5=7kpds6=100kpds7=850TR=0P1=33P2=0TimeU=1850.mb33hr.fcstNAve=0
+WARNING: Output 2, Duplicate record in the grib file.
+18,HGTkpds5=7kpds6=100kpds7=700TR=0P1=33P2=0TimeU=1700.mb33hr.fcstNAve=0
+Number of Records in dir output1 25 
+Number of Records in dir output2 23 
+I'm done with wgrib ouput ... lets diff 
+Standard Out:
+
+Standard Error: 
+cmp: /home/James.T.Frimel/compare/deepCC/output2/UGRDkpds5=33kpds6=100kpds7=500TR=0P1=33P2=0TimeU=1500.mb33hr.fcstNAve=0: No such file or directory
+cmp: /home/James.T.Frimel/compare/deepCC/output2/VGRDkpds5=34kpds6=100kpds7=500TR=0P1=33P2=0TimeU=1500.mb33hr.fcstNAve=0: No such file or directory
+
+I'm done with diff....
+======================================================================

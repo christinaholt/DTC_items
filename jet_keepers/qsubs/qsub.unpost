@@ -1,0 +1,15 @@
+#!/bin/sh
+
+
+#PBS -A dtc-hurr
+#PBS -l partition=ujet:tjet:sjet:vjet:njet
+#PBS -j oe
+#PBS -q batch # queue
+#PBS -l procs=1 
+#PBS -l walltime=00:10:00
+#PBS -l vmem=20GB
+#PBS -N unpost
+cd $PBS_O_WORKDIR
+
+
+./unpost_wrapper
